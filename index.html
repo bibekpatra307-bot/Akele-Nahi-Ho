@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akele Nahi Ho – Bibek Patra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #e8e0d4;
+            font-family: 'Lora', Georgia, serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .book-wrapper {
+            max-width: 780px;
+            width: 100%;
+            background: #fdfaf5;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.18);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .page {
+            background: #fdfaf5;
+            padding: 3.2rem 3.8rem 2.8rem 3.8rem;
+            page-break-after: always;
+            border-bottom: 1px solid #e2d5c0;
+        }
+        .page:last-child {
+            border-bottom: none;
+        }
+
+        /* TYPOGRAPHY */
+        .ch-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #7a5d3a;
+            margin-bottom: 0.3rem;
+        }
+
+        .ch-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d1f12;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+        }
+
+        .ch-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            color: #7a5d3a;
+            margin-bottom: 1.6rem;
+        }
+
+        p {
+            font-family: 'Lora', serif;
+            font-size: 1.02rem;
+            line-height: 1.85;
+            color: #1f170d;
+            margin-bottom: 1.1rem;
+            text-align: justify;
+        }
+
+        .first-para::first-letter {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.6rem;
+            font-weight: 700;
+            color: #7a5d3a;
+            float: left;
+            line-height: 0.7;
+            margin-right: 0.1em;
+            margin-top: 0.08em;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #3d2b18;
+            margin: 2rem 0 0.8rem 0;
+            padding-left: 0.8rem;
+            border-left: 4px solid #7a5d3a;
+        }
+
+        h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4d6a4d;
+            margin: 1.6rem 0 0.5rem 0;
+            letter-spacing: 0.02em;
+        }
+
+        .box {
+            background: #f6f0e7;
+            border-left: 4px solid #7a5d3a;
+            padding: 1rem 1.4rem;
+            margin: 1.5rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .box p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            text-align: left;
+        }
+        .box p::first-letter {
+            all: unset;
+        }
+        .box .label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7a5d3a;
+            margin-bottom: 0.25rem;
+        }
+
+        .box-blue {
+            background: #eef3f8;
+            border-left-color: #2c4a6e;
+        }
+        .box-blue .label {
+            color: #2c4a6e;
+        }
+
+        .box-green {
+            background: #eff4ea;
+            border-left-color: #4d6a4d;
+        }
+        .box-green .label {
+            color: #4d6a4d;
+        }
+
+        .pullquote {
+            border-top: 1px solid #dcc9b0;
+            border-bottom: 1px solid #dcc9b0;
+            padding: 1.2rem 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .pullquote p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #5a3f24;
+            text-align: center;
+            margin: 0;
+        }
+        .pullquote p::first-letter {
+            all: unset;
+        }
+        .pullquote .attr {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            color: #7a5d3a;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        ul,
+        ol {
+            margin-left: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+        li {
+            font-family: 'Lora', serif;
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: #1f170d;
+            margin-bottom: 0.3rem;
+        }
+
+        .story-block {
+            background: #faf3e8;
+            border: 1px solid #dcc9b0;
+            padding: 1.2rem 1.6rem;
+            margin: 1.5rem 0;
+            border-radius: 6px;
+        }
+        .story-block h4 {
+            color: #3d2b18;
+            border-bottom: 1px solid #dcc9b0;
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
+            margin-top: 0;
+        }
+        .story-block p {
+            font-size: 0.96rem;
+            margin-bottom: 0.5rem;
+        }
+        .story-block p::first-letter {
+            all: unset;
+        }
+
+        .day-card {
+            border: 1px solid #dcc9b0;
+            margin-bottom: 0.9rem;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .day-card .day-head {
+            background: #7a5d3a;
+            color: #fff;
+            padding: 0.4rem 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .day-card .day-body {
+            padding: 0.6rem 1rem;
+            background: #fdfaf5;
+        }
+        .day-card .day-body p {
+            font-size: 0.93rem;
+            margin-bottom: 0.2rem;
+            text-align: left;
+        }
+        .day-card .day-body p::first-letter {
+            all: unset;
+        }
+
+        /* COVER */
+        .cover {
+            background: linear-gradient(150deg, #1a1f2a 0%, #2c3342 50%, #0f131c 100%);
+            padding: 4rem 3.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 520px;
+            border-bottom: 1px solid #7a5d3a;
+        }
+        .cover .ornament {
+            font-size: 2.2rem;
+            color: #b8946a;
+            opacity: 0.5;
+            margin-bottom: 1.8rem;
+        }
+        .cover .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: #f5edd8;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+        }
+        .cover .sub-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: #dac29c;
+            margin-top: 0.8rem;
+            letter-spacing: 0.08em;
+        }
+        .cover .divider {
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b8946a, transparent);
+            margin: 1.4rem auto;
+        }
+        .cover .author {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #dac29c;
+            margin-top: 1.2rem;
+            letter-spacing: 0.05em;
+        }
+        .cover .edition {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            color: rgba(218, 194, 156, 0.5);
+            margin-top: 1rem;
+            letter-spacing: 0.12em;
+        }
+
+        /* TOC */
+        .toc-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #7a5d3a;
+            border-bottom: 2px solid #dcc9b0;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.6rem;
+        }
+        .toc-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            border-bottom: 1px dotted #e2d5c0;
+            font-size: 0.95rem;
+            color: #1f170d;
+        }
+        .toc-row .num {
+            color: #7a5d3a;
+            font-weight: 500;
+            min-width: 2rem;
+        }
+        .toc-row .name {
+            flex: 1;
+            padding: 0 0.8rem;
+        }
+        .toc-row .pg {
+            color: #7a5d3a;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* HEADER / FOOTER */
+        .running {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #7a5d3a;
+            border-bottom: 1px solid #e2d5c0;
+            padding-bottom: 0.4rem;
+            margin-bottom: 1.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .page-foot {
+            margin-top: 2.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2d5c0;
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            color: #7a5d3a;
+            letter-spacing: 0.06em;
+        }
+
+        /* SPECIAL PAGES */
+        .dedication {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 400px;
+            flex-direction: column;
+        }
+        .dedication .text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: #3d2b18;
+            line-height: 1.9;
+            max-width: 420px;
+        }
+
+        .copyright {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: #2d1f12;
+        }
+        .copyright p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.92rem;
+            text-align: left;
+        }
+        .copyright p::first-letter {
+            all: unset;
+        }
+
+        .centered {
+            text-align: center;
+        }
+        .centered p {
+            text-align: center;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                padding: 2rem 1.4rem;
+            }
+            .cover .main-title {
+                font-size: 2.4rem;
+            }
+            .ch-title {
+                font-size: 1.5rem;
+            }
+            .cover {
+                padding: 2.5rem 1.5rem;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .book-wrapper {
+                box-shadow: none;
+                max-width: 100%;
+                border-radius: 0;
+            }
+            .page {
+                padding: 2cm 2.2cm;
+                border-bottom: none;
+                page-break-after: always;
+            }
+            .cover {
+                min-height: 0;
+                page-break-after: always;
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-wrapper">
+
+        <!-- ========================================================= -->
+        <!-- COVER                                                       -->
+        <!-- ========================================================= -->
+        <div class="cover">
+            <div class="ornament">✦</div>
+            <div class="main-title">Akele Nahi Ho</div>
+            <div class="sub-title">Solo Life Jeena, Apne Saath Rehna Seekho</div>
+            <div class="divider"></div>
+            <div class="author">Bibek Patra</div>
+            <div class="edition">First Edition · 2026</div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TITLE PAGE                                                  -->
+        <!-- ========================================================= -->
+        <div class="page" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:400px;">
+            <p style="font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:700; color:#2d1f12; margin-bottom:0.3rem;">Akele Nahi Ho</p>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5d3a; letter-spacing:0.04em;">Solo Life Jeena, Apne Saath Rehna Seekho</p>
+            <div style="width:60px; height:1px; background:#7a5d3a; margin:1.2rem auto;"></div>
+            <p style="font-family:'Playfair Display',serif; font-size:1.1rem; color:#3d2b18;">Bibek Patra</p>
+            <div class="page-foot" style="margin-top:2.8rem;"><span class="page-num">ii</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- COPYRIGHT                                                   -->
+        <!-- ========================================================= -->
+        <div class="page copyright">
+            <div style="padding-top:2rem;">
+                <p><strong>Akele Nahi Ho</strong><br />Solo Life Jeena, Apne Saath Rehna Seekho</p>
+                <p style="margin-top:1.2rem;">Author: <strong>Bibek Patra</strong></p>
+                <p>© 2026 Bibek Patra. All rights reserved.</p>
+                <p>No part of this book may be reproduced or distributed without written permission. Personal reading and sharing for non-commercial purposes is encouraged.</p>
+                <p style="margin-top:1.2rem;"><em>Disclaimer:</em> This book is for educational and motivational purposes. If you are experiencing severe depression or mental health crisis, please consult a qualified counselor.</p>
+                <p style="margin-top:1.2rem;">First Digital Edition, 2026</p>
+            </div>
+            <div class="page-foot"><span class="page-num">iii</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- DEDICATION                                                  -->
+        <!-- ========================================================= -->
+        <div class="page dedication">
+            <div class="text">
+                <p style="font-family:'Playfair Display',serif; font-size:1.2rem; font-style:italic; color:#3d2b18; line-height:1.9; margin-bottom:0;">Un sabhi ke liye jo akele mehsus karte hain&hellip;</p>
+                <p style="font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:#5a3f24; line-height:1.9; margin-top:0.8rem;">Jo sochte hain ki koi nahi hai<br />Jo raat ko aankh band karte hain<br />Aur udaas mehsus karte hain</p>
+                <p style="font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; color:#5a3f24; line-height:1.9; margin-top:0.8rem;">Tum akele nahi ho.<br /><span style="color:#7a5d3a;">Ye book tumhe apna saath dena seekhayegi.</span></p>
+            </div>
+            <div class="page-foot"><span class="page-num">iv</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- AUTHOR'S NOTE                                              -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>LEKHAK KI TARAF SE</span><span>Author's Note</span></div>
+            <p class="first-para">Main Bibek Patra hoon. Aur main akele rehna jaanta hoon. Bohot saal main akela raha. Koi nahi tha. Dost the, family thi, par andar se main akela tha. Kisi ko nahi bata paata tha ki main kya feel kar raha hoon. Kisi ko nahi dikha paata tha ki main kitna dukhi hoon.</p>
+            <p>Phir ek din mujhe realize hua&mdash;akelapan koi bimari nahi hai. Ye ek phase hai. Aur is phase ko main apne liye use kar sakta hoon. Apne saath rehna seekh sakta hoon. Apni company enjoy kar sakta hoon. Aur tab life badal gayi.</p>
+            <p>Ye book un sabhi ke liye hai jo akele mehsus karte hain. Jo sochte hain ki unke paas koi nahi. Jo raat ko udaas ho jaate hain. Jo apne aap ko akela paate hain.</p>
+            <p>Main tumhe bataunga&mdash;akela hona dukh nahi hai. Akela hona ek opportunity hai. Apne saath rehna seekhna sabse badi skill hai. Aur ye book tumhe woh skill seekhayegi.</p>
+            <p style="margin-top:1.8rem; text-align:right;">— <strong>Bibek Patra</strong></p>
+            <div class="page-foot"><span class="page-num">v</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- TABLE OF CONTENTS                                          -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CONTENTS</span><span>Contents</span></div>
+            <div class="toc-title">Contents</div>
+
+            <div class="toc-row"><span class="num">—</span><span class="name">Introduction — Akelapan Kya Hai?</span><span class="pg">1</span></div>
+            <div class="toc-row"><span class="num">1</span><span class="name">Akelapan — Dard Ya Mauka?</span><span class="pg">7</span></div>
+            <div class="toc-row"><span class="num">2</span><span class="name">Apni Company Seekhna</span><span class="pg">15</span></div>
+            <div class="toc-row"><span class="num">3</span><span class="name">Solo Life Ke Fayde</span><span class="pg">23</span></div>
+            <div class="toc-row"><span class="num">4</span><span class="name">Social Media Ka Jhootha Sach</span><span class="pg">31</span></div>
+            <div class="toc-row"><span class="num">5</span><span class="name">Apne Saath Rehna Seekho</span><span class="pg">39</span></div>
+            <div class="toc-row"><span class="num">6</span><span class="name">Solo Din Ka Schedule</span><span class="pg">47</span></div>
+            <div class="toc-row"><span class="num">7</span><span class="name">Mental Health & Solitude</span><span class="pg">55</span></div>
+            <div class="toc-row"><span class="num">8</span><span class="name">Khud Se Dosti</span><span class="pg">63</span></div>
+            <div class="toc-row"><span class="num">9</span><span class="name">Ghar Ka Solo Setup</span><span class="pg">71</span></div>
+            <div class="toc-row"><span class="num">10</span><span class="name">Solo Travel — Apni Duniya</span><span class="pg">79</span></div>
+            <div class="toc-row"><span class="num">11</span><span class="name">Relationships & Solitude</span><span class="pg">87</span></div>
+            <div class="toc-row"><span class="num">12</span><span class="name">Dost Kaise Banaye?</span><span class="pg">95</span></div>
+            <div class="toc-row"><span class="num">13</span><span class="name">Career & Akele Rehna</span><span class="pg">103</span></div>
+            <div class="toc-row"><span class="num">14</span><span class="name">Spirituality — Andar Ka Sukoon</span><span class="pg">111</span></div>
+            <div class="toc-row"><span class="num">15</span><span class="name">Overthinking Ko Roko</span><span class="pg">119</span></div>
+            <div class="toc-row"><span class="num">16</span><span class="name">Emotional Detachment</span><span class="pg">127</span></div>
+            <div class="toc-row"><span class="num">17</span><span class="name">Solo Hobbies — Creativity</span><span class="pg">135</span></div>
+            <div class="toc-row"><span class="num">18</span><span class="name">Physical Health Alone</span><span class="pg">143</span></div>
+            <div class="toc-row"><span class="num">19</span><span class="name">30-Day Solo Challenge</span><span class="pg">151</span></div>
+            <div class="toc-row"><span class="num">20</span><span class="name">Solo Life Manifesto</span><span class="pg">159</span></div>
+            <div class="toc-row"><span class="num">—</span><span class="name">Conclusion — Tum Akela Nahin Ho</span><span class="pg">167</span></div>
+            <div class="toc-row"><span class="num">—</span><span class="name">Final Letter</span><span class="pg">173</span></div>
+            <div class="toc-row"><span class="num">—</span><span class="name">30 Days Solo Challenge</span><span class="pg">177</span></div>
+
+            <div class="page-foot"><span class="page-num">vi</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- INTRODUCTION                                               -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>INTRODUCTION</span><span>Akelapan Kya Hai?</span></div>
+            <div class="ch-number">Introduction</div>
+            <div class="ch-title">Akelapan Kya Hai?</div>
+            <div class="ch-sub">Kya tum akela feel karte ho? Kya tumhe lagta hai ki koi nahi hai?</div>
+
+            <p class="first-para">Kya tum kabhi raat ko aankh band karte ho aur sochte ho&mdash;"Mere paas koi nahi hai." Kya tum kabhi bheed me bhi akela mehsus karte ho? Kya tum kabhi sochte ho ki log tumhe samajhte nahi? Agar haan, toh tum akele nahi ho. Bohot log hain jo yahi mehsus karte hain. Aur ye normal hai.</p>
+            <p>Akelapan ek feeling hai. Ye tab aata hai jab tum connect feel nahi karte. Jab tumhe lagta hai ki koi tumhe nahi samajhta. Jab tum apne aap ko alag paate ho.</p>
+            <p>Par sach ye hai&mdash;akelapan permanent nahi hai. Aur akelapan hamesha bura nahi hota. Akelapan ek mauka hai. Apne saath rehna seekhne ka mauka. Apne aap ko jaanne ka mauka. Apni life ko better banane ka mauka.</p>
+
+            <h3>Akelapan Kaisa Lagta Hai?</h3>
+            <p>Akelapan alag-alag tarah se feel hota hai. Kuch log physically akela rehte hain. Unke aas-paas koi nahi hai. Kuch log bheed me akela mehsus karte hain. Unke dost hain, family hai, par wo connect nahi feel karte.</p>
+            <p>Akelapan ka dard real hai. Ye depression, anxiety, aur health problems ka cause ban sakta hai. Par akelapan ko samjho toh ye kam ho jaata hai.</p>
+
+            <div class="box box-blue">
+                <div class="label">🔬 Science Fact</div>
+                <p>Research ke hisaab se&mdash;akelapan brain ke us part ko activate karta hai jo physical pain process karta hai. Isliye akelapan literally hurt karta hai. Par jaise physical pain heal ho sakta hai, waise hi akelapan bhi heal ho sakta hai.</p>
+            </div>
+
+            <h3>Ye Book Kiske Liye Hai?</h3>
+            <ul>
+                <li>Unke liye jo akela feel karte hain.</li>
+                <li>Unke liye jo apni company enjoy nahi kar paate.</li>
+                <li>Unke liye jo sochte hain ki unki life me koi nahi hai.</li>
+                <li>Unke liye jo apne saath rehna seekhna chahte hain.</li>
+                <li>Unke liye jo solo life ko embrace karna chahte hain.</li>
+            </ul>
+
+            <div class="pullquote">
+                <p>"Akelana bura nahi hai. Apne saath rehna seekhna sabse badi skill hai."</p>
+            </div>
+
+            <p>Chalo, shuru karte hain.</p>
+            <div class="page-foot"><span class="page-num">1</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- INTRODUCTION CONTINUED                                     -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>INTRODUCTION</span><span>Akelapan Kya Hai?</span></div>
+
+            <h3>Kavya Ki Story</h3>
+            <p>Kavya 26 saal ki thi. Mumbai me rehti thi. Job thi, dost the, family thi. Par wo akela feel karti thi. Raat ko jab wo ghar jaati thi, toh usko lagta tha ki koi nahi hai. Uske dost the, par wo unhe apna dard nahi dikha paati thi. Wo sochti thi&mdash;"Log kya sochenge? Main weak dikhungi."</p>
+            <p>Ek raat wo ro rahi thi. Usne socha&mdash;"Main akeli kyun hoon? Mere paas sab kuch hai, phir bhi main akeli hoon."</p>
+            <p>Usne apni best friend ko call kiya. Friend ne kaha&mdash;"Kavya, tum akeli nahi ho. Main hoon. Par tumhe apne saath rehna seekhna hoga. Jab tak tum apni company enjoy nahi karogi, tab tak tum akeli feel karti rahogi."</p>
+            <p>Kavya ne socha&mdash;"Apni company? Main apne saath kaise reh sakti hoon? Main toh khud ko pasand nahi karti."</p>
+            <p>Ye book Kavya ki journey hai. Aur tumhari bhi.</p>
+
+            <h3>Book Ka Structure</h3>
+            <p>Ye book 20 chapters me divided hai. Har chapter me story hai, lesson hai, aur exercise hai. Har chapter ke end me reflection questions hain. Aur ek 30-day challenge hai.</p>
+            <p>Is book ko padhne ka tareeqa&mdash;ek chapter roz padho. Exercise karo. Reflection questions ka jawab likho. Phir agla chapter padho.</p>
+            <p>Koi rush nahi. Apni speed. Par ek promise karo&mdash;<strong>apne saath rehna seekhna.</strong></p>
+
+            <div class="box box-green">
+                <div class="label">✍️ First Exercise</div>
+                <p>Notebook lo. Likho&mdash;"Main akela kyun feel kar raha/rahi hoon?" Ek page likho. Bina filter ke. Sirf tum aur tumhari feelings. Ye tumhara healing journal hai.</p>
+            </div>
+
+            <p><strong>Next Chapter Preview:</strong> Kavya ne apna dard pehchan liya. Par wo jaanti hai ki akelapan dard bhi hai aur mauka bhi. Agle chapter me&mdash;<strong>Akelapan&mdash;Dard Ya Mauka?</strong></p>
+
+            <div class="page-foot"><span class="page-num">2</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 1                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 1</span><span>Akelapan — Dard Ya Mauka?</span></div>
+            <div class="ch-number">Chapter One</div>
+            <div class="ch-title">Akelapan — Dard Ya Mauka?</div>
+            <div class="ch-sub">Akelapan ko kaise dekhte ho — dard ya opportunity?</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Akelapan dard hai. Mujhe koi nahi samajhta. Main akeli hoon." Par ek din usko realization hui. Akelapan ek perspective hai. Tum akelapan ko dard ki tarah dekh sakte ho. Ya tum akelapan ko opportunity ki tarah dekh sakte ho.</p>
+            <p>Dono tarah dekhna tumhari choice hai. Agar tum akelapan ko dard ki tarah dekhte ho&mdash;toh wo dard hi rahega. Agar tum akelapan ko opportunity ki tarah dekhte ho&mdash;toh wo tumhari growth ka tool ban sakta hai.</p>
+
+            <h3>Dard Wala Akelapan</h3>
+            <p>Jab tum akelapan ko dard ki tarah dekhte ho:</p>
+            <ul>
+                <li>Tum udaas feel karte ho.</li>
+                <li>Tum sochte ho ki koi nahi hai.</li>
+                <li>Tum apni company enjoy nahi kar paate.</li>
+                <li>Tum logon ki validation dhundte ho.</li>
+                <li>Tum khud ko weak feel karte ho.</li>
+            </ul>
+            <p>Ye akelapan toxic ho sakta hai. Aur ye depression aur anxiety ka cause ban sakta hai.</p>
+
+            <h3>Mauka Wala Akelapan</h3>
+            <p>Jab tum akelapan ko opportunity ki tarah dekhte ho:</p>
+            <ul>
+                <li>Tum apne saath time spend karte ho.</li>
+                <li>Tum apni hobbies explore karte ho.</li>
+                <li>Tum apne aap ko jaante ho.</li>
+                <li>Tum grow karte ho.</li>
+                <li>Tum strong feel karte ho.</li>
+            </ul>
+            <p>Ye akelapan empowering hai. Aur ye tumhe better insaan banata hai.</p>
+
+            <h3>Kavya Ka Decision</h3>
+            <p>Kavya ne decide kiya&mdash;"Main akelapan ko opportunity ki tarah dekhungi." Usne socha&mdash;"Mere paas time hai. Main kuch naya try kar sakti hoon. Main apne saath rehna seekh sakti hoon."</p>
+            <p>Usne akelapan ko embrace kiya. Aur uski life change hone lagi.</p>
+
+            <div class="box box-blue">
+                <div class="label">💡 Perspective Shift</div>
+                <p>Akelapan ek fact hai. Par usko kaise dekhte ho&mdash;ye tumhari choice hai. Tum dard choose kar sakte ho, ya opportunity choose kar sakte ho. Dono me se ek choose karo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Akelapan dard nahi hai. Akelapan ek mauka hai&mdash;apne saath rehna seekhne ka."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">7</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 1 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 1</span><span>Akelapan — Dard Ya Mauka?</span></div>
+
+            <h3>Akelapan vs Alone Time</h3>
+            <p>Akelapan aur alone time me farak hai. Alone time&mdash;jab tum physically akela rehte ho. Akelapan&mdash;jab tum emotionally akela feel karte ho. Tum bheed me bhi akela feel kar sakte ho. Aur tum physically akela reh kar bhi happy feel kar sakte ho.</p>
+            <p>Goal ye hai ki alone time ko enjoy karo. Akelapan ko overcome karo. Aur apni company me happy raho.</p>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Perspective Check</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Main akelapan ko kaise dekhta/dekhti hoon?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Agar main akelapan ko opportunity ki tarah dekhun toh kya change ho sakta hai?"<br />
+                <strong>Step 4:</strong> Likho&mdash;"Ek action jo main aaj le sakta/ sakti hoon apne saath rehna seekhne ke liye."</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tum akelapan ko kaise dekhte ho&mdash;dard ya mauka?</li>
+                <li>Agar tum akelapan ko mauka ki tarah dekho toh kya change ho sakta hai?</li>
+                <li>Tum apni company me kaise feel karte ho?</li>
+                <li>Kya tum alone time enjoy karte ho?</li>
+                <li>Ek action jo tum aaj le sakte ho apne saath rehna seekhne ke liye.</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Rahul</strong>&mdash;29 saal. Akela feel karta tha. Dost the, par wo connect nahi feel karta tha. Usne akelapan ko opportunity ki tarah dekha. Usne painting seekhni shuru ki. Solo trips ki. Apni company enjoy karni shuru ki. 6 months baad&mdash;wo happy tha. Akelapan ab dard nahi tha.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Akelapan ek perspective hai. Dard ki tarah dekho toh dard rahega. Opportunity ki tarah dekho toh growth hogi. Akelapan vs alone time&mdash;alone time enjoy karo, akelapan ko overcome karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne perspective change kiya. Ab wo apni company seekh rahi hai. Agle chapter me&mdash;<strong>Apni Company Seekhna.</strong></p>
+
+            <div class="page-foot"><span class="page-num">8</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 2                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 2</span><span>Apni Company Seekhna</span></div>
+            <div class="ch-number">Chapter Two</div>
+            <div class="ch-title">Apni Company Seekhna</div>
+            <div class="ch-sub">Apne saath rehna seekho. Apni company enjoy karo.</div>
+
+            <p class="first-para">Kavya ne decide kiya&mdash;apni company seekhni hai. Par wo nahi jaanti thi ki kaise. Wo hamesha logon ke saath rehti thi. Jab akeli hoti thi, toh usko anxiety hoti thi. Uska dimaag overthink karta tha. Wo sochti thi&mdash;"Main akeli kyun hoon? Kya meri life me kuch galat hai?"</p>
+            <p>Par usko pata tha&mdash;apni company seekhna zaroori hai. Kyunki agar tum apni company enjoy nahi karoge, toh tum hamesha doosron ki validation dhundte rahoge. Aur wo healthy nahi hai.</p>
+
+            <h3>Apni Company Kaise Seekhe?</h3>
+            <p>Apni company seekhna ek process hai. Instant nahi. Dheere-dheere seekhna hai.</p>
+
+            <h4>1. Alone Time Start Karo</h4>
+            <p>Roz 15 minute alone time rakho. Koi phone nahi. Koi TV nahi. Koi distraction nahi. Bas tum aur tumhari soch. Ye mushkil lagega. Par consistent raho.</p>
+
+            <h4>2. Apni Hobbies Explore Karo</h4>
+            <p>Kya tumhe kuch pasand hai? Reading? Writing? Painting? Music? Cooking? Apni hobbies explore karo. Jab tum apni hobbies me engross ho, toh alone time enjoy ho jaata hai.</p>
+
+            <h4>3. Journaling</h4>
+            <p>Roz journal likho. Apne thoughts, feelings, experiences. Journaling tumhe apne saath connect karti hai. Tum apne aap ko better samajhte ho.</p>
+
+            <h4>4. Self-Reflection</h4>
+            <p>Apne saath time spend karo. Apni life analyze karo. Kya achha hai? Kya improve kar sakte ho? Self-reflection growth ka tool hai.</p>
+
+            <h3>Kavya Ka Journey</h3>
+            <p>Kavya ne chhota start kiya. Roz 15 minute alone time. Koi phone nahi. Bas wo aur uski soch. Pehle din mushkil tha. Uska dimaag bohot overthink kar raha tha. Par usne continue kiya.</p>
+            <p>Dheere-dheere usko alone time pasand aane laga. Wo apni hobbies explore karni shuru ki. Painting seekhna shuru kiya. Journaling karna shuru kiya. 1 month baad&mdash;wo apni company enjoy kar rahi thi.</p>
+
+            <div class="box box-blue">
+                <div class="label">🧠 Psychology Fact</div>
+                <p>Research ke hisaab se&mdash;jo log apni company enjoy karte hain, wo zyada creative, zyada productive, aur zyada happy hote hain. Apni company seekhna mental health ke liye important hai.</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">15</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 2 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 2</span><span>Apni Company Seekhna</span></div>
+
+            <h3>Apni Company Seekhne Ke Benefits</h3>
+            <ul>
+                <li><strong>Self-awareness:</strong> Tum apne aap ko better samajhte ho.</li>
+                <li><strong>Confidence:</strong> Tum doosron ki validation par dependent nahi ho.</li>
+                <li><strong>Creativity:</strong> Alone time creativity badhata hai.</li>
+                <li><strong>Peace:</strong> Tum apne saath peace feel karte ho.</li>
+                <li><strong>Growth:</strong> Tum apni life me growth kar sakte ho.</li>
+            </ul>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Alone Time Practice</div>
+                <p><strong>Step 1:</strong> Roz 15 minute alone time rakho.<br />
+                <strong>Step 2:</strong> Phone, TV, laptop&mdash;sab band karo.<br />
+                <strong>Step 3:</strong> Bas baitho. Apni soch ko observe karo.<br />
+                <strong>Step 4:</strong> Agar dimaag overthink kare toh observe karo. Judge mat karo.<br />
+                <strong>Step 5:</strong> 7 days continue karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tum alone time me kaise feel karte ho?</li>
+                <li>Kya tum apni company enjoy karte ho?</li>
+                <li>Tumhari hobbies kya hain?</li>
+                <li>Kya tum journaling karte ho?</li>
+                <li>Alone time ko enjoy karne ke liye tum kya kar sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Priya</strong>&mdash;28 saal. Hamesha logon ke saath rehti thi. Jab akeli hoti thi, anxiety hoti thi. Usne alone time practice shuru ki. Roz 15 minute. Dheere-dheere usko aadat ho gayi. Ab wo alone time enjoy karti hai. Reading, writing, music&mdash;uski hobbies. Wo happy hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Apni company enjoy karna seekho. Doosron ki validation ki zaroorat nahi."</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Apni company seekhna ek process hai. Alone time start karo. Hobbies explore karo. Journaling karo. Self-reflection karo. Apni company seekhna mental health ke liye important hai.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne apni company seekhna shuru kar diya. Ab wo solo life ke fayde dekh rahi hai. Agle chapter me&mdash;<strong>Solo Life Ke Fayde.</strong></p>
+
+            <div class="page-foot"><span class="page-num">16</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 3                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 3</span><span>Solo Life Ke Fayde</span></div>
+            <div class="ch-number">Chapter Three</div>
+            <div class="ch-title">Solo Life Ke Fayde</div>
+            <div class="ch-sub">Akela rehna kyu beneficial hai? Solo life ke advantages.</div>
+
+            <p class="first-para">Kavya ne alone time practice shuru ki. Usne socha&mdash;"Akela rehna bura nahi hai. Iske kuch fayde bhi hain." Usne solo life ke fayde explore karne shuru kiye. Aur usko pata chala ki solo life bohot powerful hai.</p>
+
+            <h3>Solo Life Ke Top 5 Fayde</h3>
+
+            <h4>1. Full Freedom</h4>
+            <p>Jab tum akela rehte ho, toh tumhari life tumhari rules par chalti hai. Koi interference nahi. Tum kuch bhi kar sakte ho. Kahi bhi ja sakte ho. Jab chahe so sakte ho. Jab chahe kha sakte ho. Full freedom.</p>
+
+            <h4>2. Self-Discovery</h4>
+            <p>Akela rehne se tum apne aap ko jaante ho. Tumari likes, dislikes, strengths, weaknesses&mdash;sab pata chalta hai. Tum apne aap ko better samajhte ho.</p>
+
+            <h4>3. Personal Growth</h4>
+            <p>Solo life me tum grow karte ho. Tum nayi cheezein seekhte ho. Naye experiences lete ho. Tum independent bante ho.</p>
+
+            <h4>4. Mental Peace</h4>
+            <p>Akela rehne me peace hai. Koi drama nahi. Koi unnecessary tension nahi. Tum apne saath peace feel karte ho.</p>
+
+            <h4>5. Stronger Relationships</h4>
+            <p>Jab tum apni company enjoy karte ho, toh tum doosron ke saath healthy relationships bana paate ho. Tum dependent nahi ho. Tum strong ho.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne solo life ke fayde mehsus kiye. Wo independent ho gayi. Uska confidence badha. Wo apni company enjoy karti thi. Uske relationships bhi better ho gaye. Wo ab doosron par dependent nahi thi.</p>
+
+            <div class="box box-blue">
+                <div class="label">💡 Solo Life = Strong Life</div>
+                <p>Solo life weak nahi hai. Solo life strong hai. Jo log akela rehna seekh lete hain, wo kisi bhi situation me survive kar sakte hain. Wo independent hain. Wo strong hain.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Solo life weak nahi hai. Solo life strong life hai."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">23</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 3 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 3</span><span>Solo Life Ke Fayde</span></div>
+
+            <h3>Solo Life Ko Embrace Kaise Kare?</h3>
+            <ul>
+                <li><strong>Perspective change:</strong> Solo life ko opportunity ki tarah dekho.</li>
+                <li><strong>Alone time enjoy karo:</strong> Apni hobbies, interests explore karo.</li>
+                <li><strong>Self-care:</strong> Apna khayal rakho. Body, mind, soul.</li>
+                <li><strong>Learn new things:</strong> Naye skills seekho. Naye experiences lo.</li>
+                <li><strong>Travel solo:</strong> Solo travel ek amazing experience hai.</li>
+            </ul>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Solo Life Benefits List</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Solo life ke fayde."<br />
+                <strong>Step 3:</strong> 5 fayde likho jo tumne mehsus kiye hain.<br />
+                <strong>Step 4:</strong> Likho&mdash;"Solo life ko embrace karne ke liye main kya kar sakta/ sakti hoon?"</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Solo life ke tumhe kya fayde mehsus hue hain?</li>
+                <li>Kya tum solo life ko embrace karte ho?</li>
+                <li>Solo life me tumne kya seekha hai?</li>
+                <li>Kya tum independent ho?</li>
+                <li>Solo life ko strong life kaise bana sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Anjali</strong>&mdash;30 saal. Akela rehna shuru kiya. Pehle dar tha. Par dheere-dheere usko fayde mehsus hue. Wo independent ho gayi. Uska confidence badha. Usne nayi skills seekhi. Uski life better ho gayi. Solo life ne usko strong banaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Solo life ke fayde&mdash;freedom, self-discovery, growth, mental peace, stronger relationships. Solo life weak nahi hai&mdash;strong life hai. Solo life ko embrace karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya solo life ke fayde dekh rahi hai. Par ek problem hai&mdash;social media. Social media pe sab log happy lagte hain. Unki life perfect lagti hai. Par sach kya hai? Agle chapter me&mdash;<strong>Social Media Ka Jhootha Sach.</strong></p>
+
+            <div class="page-foot"><span class="page-num">24</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 4                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 4</span><span>Social Media Ka Jhootha Sach</span></div>
+            <div class="ch-number">Chapter Four</div>
+            <div class="ch-title">Social Media Ka Jhootha Sach</div>
+            <div class="ch-sub">Social media pe sab perfect lagta hai. Par sach kya hai?</div>
+
+            <p class="first-para">Kavya social media scroll kar rahi thi. Sab log happy lag rahe the. Kisi ki shaadi ho rahi thi. Kisi ka promotion ho raha tha. Kisi ki trip chal rahi thi. Sabki life perfect lag rahi thi. Kavya ne socha&mdash;"Main akeli hoon. Meri life boring hai."</p>
+            <p>Par kya sach me unki life perfect hai? Social media ek highlight reel hai. Log apni best moments dikhate hain. Unki struggles, unki failures, unki lonely nights&mdash;ye nahi dikhate.</p>
+
+            <h3>Social Media Ka Sach</h3>
+            <ul>
+                <li>Log apni best moments dikhate hain.</li>
+                <li>Unki life perfect nahi hai.</li>
+                <li>Unhe bhi akelapan feel hota hai.</li>
+                <li>Unhe bhi problems hain.</li>
+                <li>Social media ek illusion hai.</li>
+            </ul>
+
+            <h3>Kavya Ka Realization</h3>
+            <p>Kavya ne socha&mdash;"Main social media par jo dekhti hoon, wo sach nahi hai. Wo ek filter hai. Unki life perfect nahi hai. Main apni life ko unse compare nahi kar sakti."</p>
+            <p>Usne social media use kam karna shuru kiya. Apni life par focus karna shuru kiya. Apni company enjoy karna shuru kiya. Aur wo happy ho gayi.</p>
+
+            <div class="box box-blue">
+                <div class="label">📱 Social Media Detox</div>
+                <p>Research ke hisaab se&mdash;social media zyada use karne se akelapan, depression, aur anxiety badhti hai. Social media detox zaroori hai. Time limit rakho. Apni life par focus karo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Social media ek highlight reel hai. Apni life ko unse compare mat karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">31</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 4 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 4</span><span>Social Media Ka Jhootha Sach</span></div>
+
+            <h3>Social Media Se Kaise Deal Kare?</h3>
+            <ul>
+                <li><strong>Time limit:</strong> Roz kitna time social media par spend karte ho? Limit rakho.</li>
+                <li><strong>Unfollow:</strong> Unfollow those accounts that make you feel bad.</li>
+                <li><strong>Compare mat karo:</strong> Apni life ko doosron se compare mat karo.</li>
+                <li><strong>Real connections:</strong> Real life me logo se connect karo. Social media par nahi.</li>
+                <li><strong>Digital detox:</strong> Weekly ek din social media band karo.</li>
+            </ul>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Social Media Audit</div>
+                <p><strong>Step 1:</strong> Apna social media time calculate karo.<br />
+                <strong>Step 2:</strong> Decide karo&mdash;kitna time spend karna chahiye?<br />
+                <strong>Step 3:</strong> Unfollow those accounts that make you feel bad.<br />
+                <strong>Step 4:</strong> Weekly ek digital detox day rakho.<br />
+                <strong>Step 5:</strong> Apni real life par focus karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tum social media par kitna time spend karte ho?</li>
+                <li>Kya social media tumhe akela feel karwata hai?</li>
+                <li>Kya tum apni life ko doosron se compare karte ho?</li>
+                <li>Social media detox try kar sakte ho?</li>
+                <li>Apni life par focus karne ke liye kya kar sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Rohit</strong>&mdash;27 saal. Social media par bohot time spend karta tha. Usko lagta tha ki sabki life better hai. Wo akela feel karta tha. Usne social media time limit rakhi. Unfollow kiya. Apni hobbies par focus kiya. 1 month baad&mdash;wo happy tha. Usne realize kiya ki social media sach nahi hai.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Social media ek highlight reel hai. Log apni best moments dikhate hain. Unki life perfect nahi hai. Social media detox zaroori hai. Apni life par focus karo. Compare mat karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne social media ka sach samajh liya. Ab wo apne saath rehna seekh rahi hai. Agle chapter me&mdash;<strong>Apne Saath Rehna Seekho.</strong></p>
+
+            <div class="page-foot"><span class="page-num">32</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 5                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 5</span><span>Apne Saath Rehna Seekho</span></div>
+            <div class="ch-number">Chapter Five</div>
+            <div class="ch-title">Apne Saath Rehna Seekho</div>
+            <div class="ch-sub">Apne saath rehna ek art hai. Isko seekhna hoga.</div>
+
+            <p class="first-para">Kavya ne alone time practice kiya. Hobbies explore ki. Social media kam use kiya. Par usko pata tha&mdash;apne saath rehna ek art hai. Ise seekhna hoga.</p>
+            <p>Apne saath rehna ka matlab ye nahi hai ki tum akela rehne me comfortable ho. Iska matlab hai&mdash;tum apni company enjoy karte ho. Tum apne saath happy feel karte ho. Tum apni soch, apni feelings, apne experiences ko appreciate karte ho.</p>
+
+            <h3>Apne Saath Rehna Kaise Seekhe?</h3>
+
+            <h4>1. Self-Compassion</h4>
+            <p>Apne saath rehna seekhne ke liye self-compassion zaroori hai. Apne aap ko judge mat karo. Apne aap ko criticize mat karo. Apne aap ko waisa hi accept karo jaise tum ho.</p>
+
+            <h4>2. Self-Care</h4>
+            <p>Apna khayal rakho. Body, mind, soul. Healthy khao. Exercise karo. Sleep lo. Relax karo. Apne saath rehna self-care se shuru hota hai.</p>
+
+            <h4>3. Self-Reflection</h4>
+            <p>Apne saath time spend karo. Apni life analyze karo. Kya achha hai? Kya improve kar sakte ho? Self-reflection growth ka tool hai.</p>
+
+            <h4>4. Gratitude</h4>
+            <p>Apni life me grateful raho. Chhoti chhoti cheezon ke liye thankful raho. Gratitude happiness badhata hai.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne self-compassion practice kiya. Usne apne aap ko accept kiya. Self-care kiya. Self-reflection kiya. Gratitude practice kiya. Dheere-dheere usko apne saath rehna pasand aane laga. Wo apni company enjoy karti thi. Wo happy thi.</p>
+
+            <div class="box box-blue">
+                <div class="label">💡 Self-Love</div>
+                <p>Apne saath rehna seekhna self-love hai. Apne aap ko accept karo. Apne aap ko appreciate karo. Apne aap ko love karo. Jab tum khud ko love karoge, toh tum akela feel nahi karoge.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Apne saath rehna seekho. Apni company enjoy karo. Apne aap ko love karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">39</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 5 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 5</span><span>Apne Saath Rehna Seekho</span></div>
+
+            <h3>Apne Saath Rehne Ke Benefits</h3>
+            <ul>
+                <li>Self-awareness badhti hai.</li>
+                <li>Confidence badhta hai.</li>
+                <li>Doosron ki validation par dependent nahi ho.</li>
+                <li>Mental peace aata hai.</li>
+                <li>Relationships better ho jaate hain.</li>
+            </ul>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Self-Love Practice</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Mere baare me 5 cheezein jo main appreciate karta/ karti hoon."<br />
+                <strong>Step 3:</strong> Likho&mdash;"Main apna khayal kaise rakh sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Roz self-care karo. Chhota action. Consistent.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Kya tum apne saath rehna seekhna chahte ho?</li>
+                <li>Kya tum self-compassion practice karte ho?</li>
+                <li>Kya tum self-care karte ho?</li>
+                <li>Kya tum grateful ho?</li>
+                <li>Apne saath rehne ke liye kya action le sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Neha</strong>&mdash;26 saal. Apne saath rehna mushkil tha. Wo hamesha doosron ki validation dhundhti thi. Usne self-compassion practice shuru ki. Self-care kiya. Dheere-dheere usko apni company pasand aane lagi. Wo ab happy hai.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Apne saath rehna ek art hai. Self-compassion, self-care, self-reflection, gratitude&mdash;ye tools hain. Apne saath rehna self-love hai. Apne aap ko accept karo. Apni company enjoy karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne apne saath rehna seekh liya. Ab wo apna solo din schedule bana rahi hai. Agle chapter me&mdash;<strong>Solo Din Ka Schedule.</strong></p>
+
+            <div class="page-foot"><span class="page-num">40</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 6                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 6</span><span>Solo Din Ka Schedule</span></div>
+            <div class="ch-number">Chapter Six</div>
+            <div class="ch-title">Solo Din Ka Schedule</div>
+            <div class="ch-sub">Akela rehna matlab boring nahi. Apna schedule banao. Productive bano.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Akela rehna matlab boring nahi hai. Main apna schedule bana sakti hoon. Productive ho sakti hoon. Apni life enjoy kar sakti hoon." Usne apna solo din schedule banaya.</p>
+
+            <h3>Solo Din Ka Ideal Schedule</h3>
+
+            <h4>Morning Routine</h4>
+            <ul>
+                <li><strong>6:30 AM:</strong> Uthna. Freshen up.</li>
+                <li><strong>6:45 AM:</strong> 10 minute meditation.</li>
+                <li><strong>7:00 AM:</strong> Exercise / Yoga / Walk.</li>
+                <li><strong>8:00 AM:</strong> Healthy breakfast.</li>
+                <li><strong>8:30 AM:</strong> Journaling / Reading.</li>
+            </ul>
+
+            <h4>Afternoon Routine</h4>
+            <ul>
+                <li><strong>9:30 AM:</strong> Work / Study / Creative time.</li>
+                <li><strong>12:30 PM:</strong> Lunch break.</li>
+                <li><strong>1:30 PM:</strong> Work / Study / Creative time.</li>
+                <li><strong>5:00 PM:</strong> Break. Walk / Music / Relax.</li>
+            </ul>
+
+            <h4>Evening Routine</h4>
+            <ul>
+                <li><strong>7:00 PM:</strong> Dinner.</li>
+                <li><strong>8:00 PM:</strong> Hobbies / Reading / Learning.</li>
+                <li><strong>9:30 PM:</strong> Reflection / Journaling.</li>
+                <li><strong>10:30 PM:</strong> Sleep time.</li>
+            </ul>
+
+            <h3>Kavya Ka Schedule</h3>
+            <p>Kavya ne apna schedule banaya. Wo usko follow karne lagi. Dheere-dheere usko routine pasand aane laga. Wo productive ho gayi. Wo happy ho gayi. Schedule ne usko structure diya.</p>
+
+            <div class="box box-blue">
+                <div class="label">⏰ Routine = Stability</div>
+                <p>Routine stability deti hai. Jab tumhara din structured ho, toh tum akela feel nahi karte. Routine productivity badhati hai. Mental peace aata hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Apna schedule banao. Productive bano. Solo life enjoy karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">47</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 6 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 6</span><span>Solo Din Ka Schedule</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Apna Schedule Banaye</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Apna ideal din likho. (Subah se raat tak)<br />
+                <strong>Step 3:</strong> Schedule follow karo. 7 days.<br />
+                <strong>Step 4:</strong> Observe&mdash;kya change aaya?<br />
+                <strong>Step 5:</strong> Adjust karo. Schedule ko improve karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhara current routine kya hai?</li>
+                <li>Kya tum routine follow karte ho?</li>
+                <li>Ideal schedule kya hai?</li>
+                <li>Routine tumhe kaise help kar sakti hai?</li>
+                <li>Kya tum schedule banakar follow karoge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Amit</strong>&mdash;25 saal. Akela rehta tha. Uska din unstructured tha. Wo boring feel karta tha. Usne schedule banaya. Morning routine. Work time. Hobbies. Evening routine. Dheere-dheere usko routine pasand aane lagi. Wo productive ho gaya. Happy ho gaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Schedule stability deta hai. Routine productivity badhati hai. Apna ideal din ka schedule banao. Follow karo. Adjust karo. Solo life enjoy karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne schedule bana liya. Ab wo mental health aur solitude ke baare me seekh rahi hai. Agle chapter me&mdash;<strong>Mental Health & Solitude.</strong></p>
+
+            <div class="page-foot"><span class="page-num">48</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 7                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 7</span><span>Mental Health & Solitude</span></div>
+            <div class="ch-number">Chapter Seven</div>
+            <div class="ch-title">Mental Health & Solitude</div>
+            <div class="ch-sub">Akelapan mental health ko kaise affect karta hai? Aur kaise manage kare?</div>
+
+            <p class="first-para">Kavya ne schedule bana liya. Wo productive ho gayi. Par mental health ek important factor hai. Akelapan mental health ko affect kar sakta hai. Isliye mental health ka khayal rakhna zaroori hai.</p>
+
+            <h3>Akelapan Aur Mental Health</h3>
+            <p>Akelapan mental health ko affect kar sakta hai:</p>
+            <ul>
+                <li><strong>Depression:</strong> Akelapan depression ka cause ban sakta hai.</li>
+                <li><strong>Anxiety:</strong> Akelapan anxiety badha sakta hai.</li>
+                <li><strong>Stress:</strong> Akelapan stress badha sakta hai.</li>
+                <li><strong>Sleep issues:</strong> Akelapan neend affect kar sakta hai.</li>
+                <li><strong>Low self-esteem:</strong> Akelapan self-esteem low kar sakta hai.</li>
+            </ul>
+
+            <h3>Mental Health Ka Khayal Kaise Rakhe?</h3>
+
+            <h4>1. Social Connection</h4>
+            <p>Akela rehna matlab kisi se baat mat karo&mdash;aisa nahi hai. Social connection zaroori hai. Dost ho, family ho, ya koi bhi trustable person. Unse baat karo. Connect karo.</p>
+
+            <h4>2. Physical Activity</h4>
+            <p>Exercise mental health ke liye important hai. Walk karo, gym jao, yoga karo. Physical activity endorphins release karti hai. Mood improve hota hai.</p>
+
+            <h4>3. Healthy Lifestyle</h4>
+            <p>Healthy khao. Sleep lo. Alcohol aur smoking avoid karo. Healthy lifestyle mental health ke liye zaroori hai.</p>
+
+            <h4>4. Professional Help</h4>
+            <p>Agar mental health bohot affected hai&mdash;toh professional help lo. Counselor ya therapist se baat karo. Ye weak nahi hai. Ye strong hai.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne mental health ka khayal rakhna shuru kiya. Wo dost se connect karti thi. Exercise karti thi. Healthy khaati thi. Sleep leti thi. Uska mental health better ho gaya.</p>
+
+            <div class="box box-blue">
+                <div class="label">🧠 Mental Health Matters</div>
+                <p>Mental health utna hi important hai jitna physical health. Apna khayal rakho. Agar zaroorat ho toh professional help lo. Ye weak nahi hai. Ye strong hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Mental health ka khayal rakho. Akelapan ko manage karo. Strong bano."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">55</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 7 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 7</span><span>Mental Health & Solitude</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Mental Health Check</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Meri mental health abhi kaisi hai?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Mental health improve karne ke liye main kya kar sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Action lo. Chhota action. Consistent.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhari mental health kaisi hai?</li>
+                <li>Akelapan tumhari mental health ko kaise affect karta hai?</li>
+                <li>Mental health improve karne ke liye tum kya kar sakte ho?</li>
+                <li>Kya tum professional help consider karoge?</li>
+                <li>Mental health ka khayal rakhna kyu zaroori hai?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Karan</strong>&mdash;28 saal. Akelapan depression ka cause ban gaya. Usne socha&mdash;"Main weak hoon." Par usko pata tha&mdash;mental health important hai. Usne counselor se baat ki. Exercise shuru ki. Healthy khaana shuru kiya. Dheere-dheere uski mental health better ho gayi.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Akelapan mental health ko affect kar sakta hai. Social connection, physical activity, healthy lifestyle, professional help&mdash;ye tools hain. Mental health ka khayal rakhna zaroori hai.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne mental health ka khayal rakhna seekh liya. Ab wo khud se dosti kar rahi hai. Agle chapter me&mdash;<strong>Khud Se Dosti.</strong></p>
+
+            <div class="page-foot"><span class="page-num">56</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 8                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 8</span><span>Khud Se Dosti</span></div>
+            <div class="ch-number">Chapter Eight</div>
+            <div class="ch-title">Khud Se Dosti</div>
+            <div class="ch-sub">Khud ki dosti sabse important hai. Khud se dosti karo.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main doosron se dosti karti hoon. Par khud se kyun nahi?" Usne realize kiya&mdash;khud se dosti sabse important hai. Kyunki jab tum khud ke best friend ho, toh tum kabhi akela nahi ho.</p>
+
+            <h3>Khud Se Dosti Kaise Kare?</h3>
+
+            <h4>1. Apne Saath Time Spend Karo</h4>
+            <p>Roz alone time rakho. Apne saath quality time spend karo. Apni hobbies karo. Apni soch ko observe karo.</p>
+
+            <h4>2. Apne Aap Ko Accept Karo</h4>
+            <p>Apne aap ko waisa hi accept karo jaise tum ho. Tumhari strengths, weaknesses, flaws&mdash;sab accept karo. Perfect nahi ho. Koi nahi hai.</p>
+
+            <h4>3. Apne Aap Ko Encourage Karo</h4>
+            <p>Apne aap ko motivate karo. "Main kar sakta hoon." "Main strong hoon." "Main capable hoon." Positive self-talk.</p>
+
+            <h4>4. Apne Aap Ko Treat Karo</h4>
+            <p>Apne aap ko treat karo. Kuch achha karo apne liye. Gift do. Special meal khao. Self-love practice karo.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne khud se dosti karna shuru kiya. Wo apne saath time spend karti thi. Apne aap ko accept karti thi. Apne aap ko encourage karti thi. Apne aap ko treat karti thi. Dheere-dheere usko khud se dosti ho gayi. Wo khud ki best friend ban gayi.</p>
+
+            <div class="box box-blue">
+                <div class="label">💡 Khud Ki Dosti</div>
+                <p>Khud ki dosti sabse important relationship hai. Jab tum khud ke best friend ho, toh tum kabhi akela nahi ho. Tum hamesha apne saath ho. Ye sabse safe relationship hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Khud se dosti karo. Khud ke best friend bano. Kabhi akela nahi rahoge."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">63</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 8 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 8</span><span>Khud Se Dosti</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Khud Se Dosti</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Main khud ke baare me 5 cheezein appreciate karta/ karti hoon."<br />
+                <strong>Step 3:</strong> Likho&mdash;"Main khud ko encourage karne ke liye kya bol sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Roz positive self-talk practice karo.<br />
+                <strong>Step 5:</strong> Weekend me apne aap ko treat karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Kya tum khud se dosti karte ho?</li>
+                <li>Kya tum apne aap ko accept karte ho?</li>
+                <li>Kya tum apne aap ko encourage karte ho?</li>
+                <li>Khud se dosti kyun important hai?</li>
+                <li>Khud se dosti karne ke liye kya action le sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Shreya</strong>&mdash;29 saal. Khud se dosti nahi thi. Wo hamesha doosron ki validation dhundhti thi. Usne khud se dosti karna shuru kiya. Alone time. Self-acceptance. Self-encouragement. Self-love. Dheere-dheere wo khud ki best friend ban gayi. Wo happy ho gayi.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Khud ki dosti sabse important hai. Apne saath time spend karo. Apne aap ko accept karo. Encourage karo. Treat karo. Khud ke best friend bano.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne khud se dosti kar li. Ab wo apna ghar solo setup bana rahi hai. Agle chapter me&mdash;<strong>Ghar Ka Solo Setup.</strong></p>
+
+            <div class="page-foot"><span class="page-num">64</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 9                                                   -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 9</span><span>Ghar Ka Solo Setup</span></div>
+            <div class="ch-number">Chapter Nine</div>
+            <div class="ch-title">Ghar Ka Solo Setup</div>
+            <div class="ch-sub">Apna ghar comfortable banao. Solo life enjoy karo.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Mera ghar mera castle hai. Isko comfortable banana chahiye." Usne apna ghar solo setup banaya. Comfortable, cozy, aur inspiring.</p>
+
+            <h3>Ghar Ka Solo Setup&mdash;Tips</h3>
+
+            <h4>1. Declutter</h4>
+            <p>Unnecessary cheezein hatao. Clean space, clear mind. Decluttering mental peace deta hai.</p>
+
+            <h4>2. Comfortable Furniture</h4>
+            <p>Achha sofa, comfortable bed, good chair. Furniture comfortable hona chahiye.</p>
+
+            <h4>3. Good Lighting</h4>
+            <p>Natural light, warm lamps. Lighting mood affect karti hai. Good lighting happy feel karwati hai.</p>
+
+            <h4>4. Plants</h4>
+            <p>Plants add life to space. Positive energy. Air quality improve karte hain.</p>
+
+            <h4>5. Personal Touch</h4>
+            <p>Apni photos, art, books&mdash;personal touch. Ghar personal lagna chahiye.</p>
+
+            <h4>6. Functional Space</h4>
+            <p>Work space, chill space, sleep space&mdash;alag hona chahiye. Functional space productivity badhati hai.</p>
+
+            <h3>Kavya Ka Setup</h3>
+            <p>Kavya ne apna ghar declutter kiya. Comfortable furniture liya. Good lighting. Plants. Personal touch. Functional space. Uska ghar ab cozy aur inspiring tha. Wo apne ghar me happy feel karti thi.</p>
+
+            <div class="box box-blue">
+                <div class="label">🏠 Ghar = Safe Space</div>
+                <p>Ghar tumhara safe space hai. Isko comfortable banao. Isme peace feel karo. Ghar tumhari energy ko affect karta hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Apna ghar comfortable banao. Solo life enjoy karo. Ghar tumhara castle hai."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">71</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 9 continued                                        -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 9</span><span>Ghar Ka Solo Setup</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Ghar Setup</div>
+                <p><strong>Step 1:</strong> Apna ghar observe karo. Kya comfortable hai? Kya improve kar sakte ho?<br />
+                <strong>Step 2:</strong> Declutter karo. Unnecessary cheezein hatao.<br />
+                <strong>Step 3:</strong> Personal touch add karo. Photos, art, books.<br />
+                <strong>Step 4:</strong> Plants add karo.<br />
+                <strong>Step 5:</strong> Functional space banayo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhara ghar kaisa hai? Comfortable hai?</li>
+                <li>Ghar improve karne ke liye kya kar sakte ho?</li>
+                <li>Ghar tumhari energy ko kaise affect karta hai?</li>
+                <li>Safe space banane ke liye kya action le sakte ho?</li>
+                <li>Solo life enjoy karne ke liye ghar kaisa hona chahiye?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Ravi</strong>&mdash;26 saal. Akela rehta tha. Ghar messy tha. Uncomfortable tha. Usne ghar setup improve kiya. Declutter kiya. Plants add kiye. Functional space banaya. Ab wo apne ghar me happy feel karta hai.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Ghar tumhara safe space hai. Isko comfortable banao. Declutter karo. Personal touch add karo. Plants add karo. Functional space banayo. Ghar tumhari energy ko affect karta hai.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne ghar comfortable bana liya. Ab wo solo travel explore kar rahi hai. Agle chapter me&mdash;<strong>Solo Travel&mdash;Apni Duniya.</strong></p>
+
+            <div class="page-foot"><span class="page-num">72</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 10                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 10</span><span>Solo Travel — Apni Duniya</span></div>
+            <div class="ch-number">Chapter Ten</div>
+            <div class="ch-title">Solo Travel — Apni Duniya</div>
+            <div class="ch-sub">Solo travel amazing experience hai. Apni duniya explore karo.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main solo travel try karungi." Usne plan banaya. Ek weekend trip. Apni favourite jagah. Usne travel kiya. Aur experience amazing tha.</p>
+
+            <h3>Solo Travel Kyu?</h3>
+            <ul>
+                <li><strong>Freedom:</strong> Tum apni marzi se travel karte ho. Kisi ki wait nahi.</li>
+                <li><strong>Self-discovery:</strong> Solo travel me tum apne aap ko jaante ho.</li>
+                <li><strong>Confidence:</strong> Solo travel confidence badhata hai.</li>
+                <li><strong>Adventure:</strong> Naye experiences. Naye log. Naye places.</li>
+                <li><strong>Peace:</strong> Solo travel me peace hai. Apni speed. Apni choice.</li>
+            </ul>
+
+            <h3>Solo Travel Tips</h3>
+
+            <h4>1. Start Small</h4>
+            <p>Chhota trip start karo. Weekend trip. Nearby place. Phir bada trip plan karo.</p>
+
+            <h4>2. Plan Karo</h4>
+            <p>Hotel book karo. Transport plan karo. Itinerary banao. Par flexibility rakho.</p>
+
+            <h4>3. Safety First</h4>
+            <p>Safety important hai. Family aur friends ko batao. Emergency numbers rakho. Safe places choose karo.</p>
+
+            <h4>4. Enjoy</h4>
+            <p>Travel enjoy karo. Naye log milo. Naya khao. Naya dekho. Experience karo.</p>
+
+            <h3>Kavya Ka Solo Travel Experience</h3>
+            <p>Kavya ne solo travel kiya. Wo beach par gayi. Walk ki. Book padhi. New log mile. Khana khaya. Experience amazing tha. Usne realize kiya&mdash;wo akela travel kar sakti hai. Wo independent hai. Wo strong hai.</p>
+
+            <div class="box box-blue">
+                <div class="label">🌍 Solo Travel = Self-Discovery</div>
+                <p>Solo travel self-discovery ka best tool hai. Tum apne aap ko naye environment me dekhte ho. Apni strengths jaante ho. Confidence badhta hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Solo travel karo. Apni duniya explore karo. Khud ko jaano."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">79</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 10 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 10</span><span>Solo Travel — Apni Duniya</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Solo Travel Plan</div>
+                <p><strong>Step 1:</strong> Socho&mdash;tum kaha jaana chahte ho?<br />
+                <strong>Step 2:</strong> Chhota trip plan karo. Weekend trip.<br />
+                <strong>Step 3:</strong> Hotel book karo. Transport plan karo.<br />
+                <strong>Step 4:</strong> Family/ friends ko batao.<br />
+                <strong>Step 5:</strong> Travel karo. Enjoy karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Kya tumne kabhi solo travel kiya hai?</li>
+                <li>Solo travel kyu important hai?</li>
+                <li>Tum kaha jaana chahte ho?</li>
+                <li>Solo travel se kya seekh sakte ho?</li>
+                <li>Kya tum solo travel try karoge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Ananya</strong>&mdash;27 saal. Solo travel try kiya. Pehle dar tha. Par experience amazing tha. Usne naye log mile. Naye experiences liye. Confidence badha. Wo ab solo travel karti hai. Happy hai.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Solo travel freedom, self-discovery, confidence, adventure, peace. Start small. Plan karo. Safety first. Enjoy karo. Solo travel self-discovery ka best tool hai.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne solo travel experience kar liya. Ab wo relationships aur solitude ke baare me seekh rahi hai. Agle chapter me&mdash;<strong>Relationships & Solitude.</strong></p>
+
+            <div class="page-foot"><span class="page-num">80</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 11                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 11</span><span>Relationships & Solitude</span></div>
+            <div class="ch-number">Chapter Eleven</div>
+            <div class="ch-title">Relationships & Solitude</div>
+            <div class="ch-sub">Relationships aur solitude&mdash;dono ka balance kyu zaroori hai?</div>
+
+            <p class="first-para">Kavya ne solo life enjoy karna seekh liya. Par usko pata tha&mdash;relationships bhi important hain. Solitude aur relationships&mdash;dono ka balance zaroori hai.</p>
+
+            <h3>Solitude vs Relationships</h3>
+            <p>Solitude aur relationships dono important hain. Solitude tumhe apne saath connect karti hai. Relationships tumhe doosron se connect karti hain. Dono ka balance hona chahiye.</p>
+
+            <h3>Solitude Ke Benefits For Relationships</h3>
+            <ul>
+                <li><strong>Self-awareness:</strong> Solitude self-awareness badhati hai. Tum apni needs jaante ho.</li>
+                <li><strong>Independence:</strong> Solitude independence sikhaati hai. Tum dependent nahi ho.</li>
+                <li><strong>Better communication:</strong> Solitude communication skills improve karti hai.</li>
+                <li><strong>Stronger bonds:</strong> Solitude strong relationships banati hai.</li>
+            </ul>
+
+            <h3>Relationships Ke Benefits For Solitude</h3>
+            <ul>
+                <li><strong>Support:</strong> Relationships support deti hain.</li>
+                <li><strong>Connection:</strong> Relationships connection deti hain.</li>
+                <li><strong>Growth:</strong> Relationships growth deti hain.</li>
+                <li><strong>Happiness:</strong> Relationships happiness deti hain.</li>
+            </ul>
+
+            <h3>Kavya Ka Balance</h3>
+            <p>Kavya ne solitude aur relationships ka balance banaya. Wo alone time enjoy karti thi. Par wo dost se connect bhi karti thi. Family se baat karti thi. Balance ne usko happy banaya.</p>
+
+            <div class="box box-blue">
+                <div class="label">⚖️ Balance</div>
+                <p>Solitude aur relationships dono important hain. Balance zaroori hai. Agar tum sirf solitude me rahoge, toh akela feel karoge. Agar sirf relationships me rahoge, toh dependent ho jaoge. Balance karo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Solitude aur relationships&mdash;dono ka balance. Dono important hain."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">87</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 11 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 11</span><span>Relationships & Solitude</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Balance Check</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Main solitude me kitna time spend karta/ karti hoon?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Main relationships me kitna time spend karta/ karti hoon?"<br />
+                <strong>Step 4:</strong> Decide karo&mdash;balance kaisa hai?<br />
+                <strong>Step 5:</strong> Action lo&mdash;balance improve karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Solitude aur relationships me tumhara balance kaisa hai?</li>
+                <li>Solitude ke benefits kya hain?</li>
+                <li>Relationships ke benefits kya hain?</li>
+                <li>Balance kyu zaroori hai?</li>
+                <li>Balance improve karne ke liye kya action le sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Vikram</strong>&mdash;30 saal. Sirf solitude me rehta tha. Dost nahi the. Family se connect nahi tha. Wo akela feel karta tha. Usne relationships build karni shuru ki. Dost banaye. Family se connect kiya. Balance banaya. Wo happy ho gaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Solitude aur relationships dono important hain. Balance zaroori hai. Solitude self-awareness, independence, better communication, stronger bonds. Relationships support, connection, growth, happiness. Balance karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne balance seekh liya. Ab wo dost banana seekh rahi hai. Agle chapter me&mdash;<strong>Dost Kaise Banaye?</strong></p>
+
+            <div class="page-foot"><span class="page-num">88</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 12                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 12</span><span>Dost Kaise Banaye?</span></div>
+            <div class="ch-number">Chapter Twelve</div>
+            <div class="ch-title">Dost Kaise Banaye?</div>
+            <div class="ch-sub">Naye dost banana mushkil hai. Par possible hai.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Mere dost hain, par naye dost kaise banaoon?" Wo naye logon se connect karna chahti thi. Par usko pata nahi tha ki kaise.</p>
+
+            <h3>Dost Kaise Banaye?&mdash;Tips</h3>
+
+            <h4>1. Common Interests</h4>
+            <p>Un logon se connect karo jinki interests tumse match karti hain. Hobbies, work, passions&mdash;common ground dhundho.</p>
+
+            <h4>2. Join Groups</h4>
+            <p>Groups join karo. Book clubs, sports teams, volunteering, workshops. Naye log milenge.</p>
+
+            <h4>3. Be Approachable</h4>
+            <p>Friendly bano. Smile karo. Eye contact karo. Approachable body language. Log approach karenge.</p>
+
+            <h4>4. Initiate Conversation</h4>
+            <p>Pehle baat karo. Hello bolo. Simple conversation shuru karo. "Hi, main Kavya hoon."</p>
+
+            <h4>5. Be Genuine</h4>
+            <p>Real bano. Pretend mat karo. Genuine connections last longer.</p>
+
+            <h4>6. Follow Up</h4>
+            <p>Phone number lo. Message karo. Plan banao. Follow up zaroori hai.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne groups join kiye. Book club, yoga class. Logo se baat ki. Genuine thi. Follow up kiya. Dheere-dheere uske naye dost ban gaye. Wo happy thi.</p>
+
+            <div class="box box-blue">
+                <div class="label">👥 Social Connection</div>
+                <p>Social connection mental health ke liye important hai. Naye dost banana mushkil hai, par possible hai. Effort lena hoga. Consistent rahna hoga.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Naye dost banao. Social circle expand karo. Connect karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">95</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 12 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 12</span><span>Dost Kaise Banaye?</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Dost Banana</div>
+                <p><strong>Step 1:</strong> Socho&mdash;tumhe kis type ke dost chahiye?<br />
+                <strong>Step 2:</strong> Groups join karo. Interests match karo.<br />
+                <strong>Step 3:</strong> Pehle baat karo. Simple conversation.<br />
+                <strong>Step 4:</strong> Genuine bano. Real bano.<br />
+                <strong>Step 5:</strong> Follow up karo. Message karo. Plan banao.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhe kis type ke dost chahiye?</li>
+                <li>Groups join karne ke liye tum kya kar sakte ho?</li>
+                <li>Kya tum approachable ho?</li>
+                <li>Kya tum genuine ho?</li>
+                <li>Dost banane ke liye action lo ge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Riya</strong>&mdash;24 saal. New city me shift hui. Koi dost nahi tha. Usne groups join kiye. Book club, dance class. Logo se baat ki. Follow up kiya. Dheere-dheere uske dost ban gaye. Ab wo happy hai.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Dost banana mushkil hai, par possible hai. Common interests dhundho. Groups join karo. Approachable bano. Conversation shuru karo. Genuine bano. Follow up karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ke dost ban gaye. Ab wo career aur akele rehne ke baare me seekh rahi hai. Agle chapter me&mdash;<strong>Career & Akele Rehna.</strong></p>
+
+            <div class="page-foot"><span class="page-num">96</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 13                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 13</span><span>Career & Akele Rehna</span></div>
+            <div class="ch-number">Chapter Thirteen</div>
+            <div class="ch-title">Career & Akele Rehna</div>
+            <div class="ch-sub">Solo life career ko kaise affect karti hai? Aur kaise use kare?</div>
+
+            <p class="first-para">Kavya ne solo life enjoy karna seekh liya. Uske dost ban gaye. Ab wo career par focus karna chahti thi. Usne socha&mdash;solo life career ko kaise affect karti hai? Aur kaise use kar sakti hai?</p>
+
+            <h3>Solo Life Ke Career Benefits</h3>
+
+            <h4>1. Focus</h4>
+            <p>Solo life me focus zyada hota hai. Distractions kam hain. Tum apne career par fully focus kar sakte ho.</p>
+
+            <h4>2. Productivity</h4>
+            <p>Akela rehne me productivity badhti hai. Tum apni speed se kaam karte ho. Koi interference nahi.</p>
+
+            <h4>3. Creativity</h4>
+            <p>Alone time creativity badhata hai. Naye ideas aate hain. Creative work ke liye solitude zaroori hai.</p>
+
+            <h4>4. Flexibility</h4>
+            <p>Solo life flexible hai. Tum apni timing choose kar sakte ho. Work-life balance better hai.</p>
+
+            <h4>5. Independence</h4>
+            <p>Solo life independence sikhaati hai. Tum apne career decisions khud lete ho. Koi dependent nahi.</p>
+
+            <h3>Career Solo Life Me Kaise Use Kare?</h3>
+
+            <ul>
+                <li><strong>Skill development:</strong> Naye skills seekho. Courses karo. Certifications lo.</li>
+                <li><strong>Networking:</strong> Professional groups join karo. Logo se connect karo.</li>
+                <li><strong>Freelancing:</strong> Solo life freelancing ke liye perfect hai.</li>
+                <li><strong>Entrepreneurship:</strong> Solo life entrepreneurship ke liye ideal hai.</li>
+            </ul>
+
+            <h3>Kavya Ka Career Growth</h3>
+            <p>Kavya ne solo life ko career ke liye use kiya. Usne naye skills seekhe. Networking kiya. Freelancing shuru ki. Uska career grow ho gaya. Wo financially independent ho gayi.</p>
+
+            <div class="box box-blue">
+                <div class="label">💼 Solo Life = Career Boost</div>
+                <p>Solo life career ke liye beneficial hai. Focus, productivity, creativity, flexibility, independence. Solo life ko career growth ke liye use karo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Solo life career ko boost karti hai. Focus karo. Grow karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">103</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 13 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 13</span><span>Career & Akele Rehna</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Career Plan</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Meri career goals kya hain?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Solo life career ke liye kaise use kar sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Skill development plan banao.<br />
+                <strong>Step 5:</strong> Action lo. Consistent raho.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhari career goals kya hain?</li>
+                <li>Solo life career ko kaise help kar sakti hai?</li>
+                <li>Skill development ke liye kya kar sakte ho?</li>
+                <li>Networking kaise kar sakte ho?</li>
+                <li>Career growth ke liye action lo ge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Aarav</strong>&mdash;28 saal. Solo life me rehta tha. Usne solo life ko career ke liye use kiya. Naye skills seekhe. Freelancing shuru ki. Career grow ho gaya. Financially independent ho gaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Solo life career ke liye beneficial hai. Focus, productivity, creativity, flexibility, independence. Skill development, networking, freelancing, entrepreneurship. Solo life ko career growth ke liye use karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne career grow kiya. Ab wo spirituality aur andar ke sukoon ke baare me seekh rahi hai. Agle chapter me&mdash;<strong>Spirituality&mdash;Andar Ka Sukoon.</strong></p>
+
+            <div class="page-foot"><span class="page-num">104</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 14                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 14</span><span>Spirituality — Andar Ka Sukoon</span></div>
+            <div class="ch-number">Chapter Fourteen</div>
+            <div class="ch-title">Spirituality — Andar Ka Sukoon</div>
+            <div class="ch-sub">Spirituality se andar ka sukoon milta hai. Akelapan kam hota hai.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main andar ka sukoon kahan dhundhoon?" Usne spirituality explore karni shuru ki. Dhyan, meditation, self-reflection&mdash;ye tools hain jo andar ka sukoon dete hain.</p>
+
+            <h3>Spirituality Kya Hai?</h3>
+            <p>Spirituality ka matlab religion nahi hai. Spirituality ka matlab hai&mdash;apne andar connect hona. Apni deeper self ko jaanna. Peace dhundhna.</p>
+
+            <h3>Spirituality Ke Tools</h3>
+
+            <h4>1. Meditation</h4>
+            <p>Meditation andar ka sukoon deta hai. Roz 10 minute meditation karo. Dhyan karo. Peace feel karoge.</p>
+
+            <h4>2. Journaling</h4>
+            <p>Journaling self-reflection ka tool hai. Apne thoughts likho. Apne emotions explore karo.</p>
+
+            <h4>3. Nature</h4>
+            <p>Nature me time spend karo. Walk karo. Peace feel karoge. Nature spiritual connection deta hai.</p>
+
+            <h4>4. Gratitude</h4>
+            <p>Gratitude practice karo. Chhoti chhoti cheezon ke liye thankful raho. Happiness badhti hai.</p>
+
+            <h4>5. Reading</h4>
+            <p>Spiritual books padho. Inspirational content consume karo. Growth hoga.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne meditation shuru ki. Journaling kiya. Nature me time spend kiya. Gratitude practice kiya. Spiritual books padhi. Uska andar ka sukoon aa gaya. Akelapan kam ho gaya.</p>
+
+            <div class="box box-blue">
+                <div class="label">🕉️ Andar Ka Sukoon</div>
+                <p>Andar ka sukoon bahar nahi milta. Andar milta hai. Spirituality tools use karo. Meditation, journaling, nature, gratitude, reading.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Spirituality se andar ka sukoon milta hai. Akelapan kam hota hai."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">111</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 14 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 14</span><span>Spirituality — Andar Ka Sukoon</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Spirituality Practice</div>
+                <p><strong>Step 1:</strong> Roz 10 minute meditation karo.<br />
+                <strong>Step 2:</strong> Journaling karo. Apne thoughts likho.<br />
+                <strong>Step 3:</strong> Nature me time spend karo. Walk karo.<br />
+                <strong>Step 4:</strong> Gratitude practice karo. 3 cheezein likho jin ke liye grateful ho.<br />
+                <strong>Step 5:</strong> Spiritual books padho.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tum spirituality ko kaise dekhte ho?</li>
+                <li>Meditation try karte ho?</li>
+                <li>Nature me time spend karte ho?</li>
+                <li>Gratitude practice karte ho?</li>
+                <li>Andar ka sukoon dhundhne ke liye kya action le sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Neeraj</strong>&mdash;29 saal. Akelapan se pareshan tha. Usne spirituality explore ki. Meditation, journaling, nature, gratitude. Dheere-dheere uska andar ka sukoon aa gaya. Akelapan kam ho gaya. Wo happy ho gaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Spirituality andar ka sukoon deta hai. Meditation, journaling, nature, gratitude, reading&mdash;ye tools hain. Andar ka sukoon dhundho. Akelapan kam hoga.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne andar ka sukoon dhundh liya. Ab wo overthinking ko rokh rahi hai. Agle chapter me&mdash;<strong>Overthinking Ko Roko.</strong></p>
+
+            <div class="page-foot"><span class="page-num">112</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 15                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 15</span><span>Overthinking Ko Roko</span></div>
+            <div class="ch-number">Chapter Fifteen</div>
+            <div class="ch-title">Overthinking Ko Roko</div>
+            <div class="ch-sub">Overthinking akelapan badhati hai. Isko rokna seekho.</div>
+
+            <p class="first-para">Kavya ko overthinking ki aadat thi. Wo akeli hoti thi, toh uska dimaag bohot sochta tha. Past, future, possibilities&mdash;sab. Overthinking se uski anxiety badhti thi. Akelapan feel hota tha.</p>
+
+            <h3>Overthinking Kya Hai?</h3>
+            <p>Overthinking&mdash;jab tum excessively sochte ho. Kisi cheez ko baar-baar analyze karte ho. Overthinking se decision paralysis hoti hai. Anxiety badhti hai. Akelapan feel hota hai.</p>
+
+            <h3>Overthinking Ko Kaise Roke?</h3>
+
+            <h4>1. Recognize</h4>
+            <p>Pehle recognize karo ki tum overthink kar rahe ho. Awareness first step hai.</p>
+
+            <h4>2. Distract</h4>
+            <p>Distract karo. Kuch aur karo. Hobby, exercise, call a friend. Distraction break karta hai.</p>
+
+            <h4>3. Write It Down</h4>
+            <p>Journal me likho. Thoughts ko paper par utaro. Clarity aati hai.</p>
+
+            <h4>4. Action</h4>
+            <p>Action lo. Overthinking tab aata hai jab action nahi lete. Chhota action lo. Overthinking kam hogi.</p>
+
+            <h4>5. Mindfulness</h4>
+            <p>Mindfulness practice karo. Present moment me raho. Past aur future ki soch kam karo.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne overthinking recognize kiya. Distract kiya. Journaling kiya. Action liya. Mindfulness practice kiya. Dheere-dheere overthinking kam ho gayi. Akelapan kam ho gaya.</p>
+
+            <div class="box box-blue">
+                <div class="label">🧠 Overthinking = Akelapan</div>
+                <p>Overthinking akelapan badhati hai. Isko rokna seekho. Recognize, distract, write, action, mindfulness. Overthinking kam karo. Akelapan kam hoga.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Overthinking ko roko. Akelapan kam hoga."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">119</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 15 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 15</span><span>Overthinking Ko Roko</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Overthinking Break</div>
+                <p><strong>Step 1:</strong> Recognize karo&mdash;tum overthink kar rahe ho.<br />
+                <strong>Step 2:</strong> Distract karo&mdash;kuch aur karo.<br />
+                <strong>Step 3:</strong> Journal me likho&mdash;thoughts ko paper par utaro.<br />
+                <strong>Step 4:</strong> Action lo&mdash;chhota action. Overthinking kam hogi.<br />
+                <strong>Step 5:</strong> Mindfulness practice karo&mdash;present moment me raho.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tum overthink karte ho?</li>
+                <li>Overthinking tumhe kaise affect karti hai?</li>
+                <li>Overthinking rokne ke liye kya kar sakte ho?</li>
+                <li>Kya tum action lete ho overthinking ko rokne ke liye?</li>
+                <li>Mindfulness practice karoge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Maya</strong>&mdash;26 saal. Overthinking ki aadat thi. Akelapan feel hota tha. Usne overthinking rokna shuru kiya. Recognize, distract, journal, action, mindfulness. Dheere-dheere overthinking kam ho gayi. Akelapan kam ho gaya. Wo happy ho gayi.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Overthinking akelapan badhati hai. Recognize, distract, write, action, mindfulness&mdash;ye tools hain. Overthinking ko roko. Akelapan kam hoga.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne overthinking rokna seekh liya. Ab wo emotional detachment seekh rahi hai. Agle chapter me&mdash;<strong>Emotional Detachment.</strong></p>
+
+            <div class="page-foot"><span class="page-num">120</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 16                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 16</span><span>Emotional Detachment</span></div>
+            <div class="ch-number">Chapter Sixteen</div>
+            <div class="ch-title">Emotional Detachment</div>
+            <div class="ch-sub">Logon aur situations se emotional detachment kaise kare?</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main logon aur situations se emotional detachment kaise kar sakti hoon?" Usne seekha&mdash;emotional detachment ka matlab insensitive hona nahi hai. Iska matlab hai&mdash;apni emotional energy ko manage karna.</p>
+
+            <h3>Emotional Detachment Kya Hai?</h3>
+            <p>Emotional detachment&mdash;apni emotions ko manage karna. Logon aur situations ko itna affect nahi hone dena. Apni emotional energy ko protect karna.</p>
+
+            <h3>Emotional Detachment Kaise Kare?</h3>
+
+            <h4>1. Self-Awareness</h4>
+            <p>Apni emotions ko jaano. Kya trigger karta hai? Kya react karte ho? Self-awareness important hai.</p>
+
+            <h4>2. Boundaries</h4>
+            <p>Boundaries set karo. Kya acceptable hai? Kya nahi? Logon ko boundaries batana zaroori hai.</p>
+
+            <h4>3. Response vs Reaction</h4>
+            <p>Reaction automatic hota hai. Response conscious hai. Response choose karo. Reaction mat karo.</p>
+
+            <h4>4. Let Go</h4>
+            <p>Control chhodo. Jo tumhare control me nahi hai&mdash;usko chhodo. Let go karo. Peace aayega.</p>
+
+            <h4>5. Self-Care</h4>
+            <p>Apna khayal rakho. Emotional energy ko recharge karo. Self-care important hai.</p>
+
+            <h3>Kavya Ka Experience</h3>
+            <p>Kavya ne emotional detachment practice kiya. Self-awareness, boundaries, response, let go, self-care. Dheere-dheere wo logon aur situations se detached ho gayi. Emotional peace aaya.</p>
+
+            <div class="box box-blue">
+                <div class="label">🧘 Emotional Peace</div>
+                <p>Emotional detachment emotional peace deta hai. Self-awareness, boundaries, response, let go, self-care. Emotional detachment insensitive hona nahi hai. Emotional energy manage karna hai.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Emotional detachment seekho. Emotional peace aayega."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">127</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 16 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 16</span><span>Emotional Detachment</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Emotional Detachment</div>
+                <p><strong>Step 1:</strong> Socho&mdash;kaunsi situations tumhe emotionally trigger karti hain?<br />
+                <strong>Step 2:</strong> Boundaries set karo. Kya acceptable hai?<br />
+                <strong>Step 3:</strong> Response practice karo. Reaction mat karo.<br />
+                <strong>Step 4:</strong> Let go karo. Control chhodo.<br />
+                <strong>Step 5:</strong> Self-care karo. Emotional energy recharge karo.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Kaunsi situations tumhe emotionally trigger karti hain?</li>
+                <li>Kya tum boundaries set karte ho?</li>
+                <li>Reaction vs response&mdash;tum kaise handle karte ho?</li>
+                <li>Let go karna tumhe kaise help kar sakta hai?</li>
+                <li>Emotional detachment practice karoge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Sneha</strong>&mdash;28 saal. Logon ki baaton se bohot affect hoti thi. Usne emotional detachment practice kiya. Self-awareness, boundaries, response, let go, self-care. Dheere-dheere wo emotional peace me aa gayi.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Emotional detachment emotional peace deta hai. Self-awareness, boundaries, response, let go, self-care. Insensitive hona nahi hai. Emotional energy manage karna hai.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne emotional detachment seekh liya. Ab wo solo hobbies explore kar rahi hai. Agle chapter me&mdash;<strong>Solo Hobbies&mdash;Creativity.</strong></p>
+
+            <div class="page-foot"><span class="page-num">128</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 17                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 17</span><span>Solo Hobbies — Creativity</span></div>
+            <div class="ch-number">Chapter Seventeen</div>
+            <div class="ch-title">Solo Hobbies — Creativity</div>
+            <div class="ch-sub">Hobbies solo life ko interesting banati hain. Creativity boost karo.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Mere paas time hai. Main kya kar sakti hoon?" Usne hobbies explore karna shuru kiya. Reading, writing, painting, music, cooking. Hobbies ne uski solo life interesting bana di.</p>
+
+            <h3>Solo Hobbies Ke Benefits</h3>
+
+            <ul>
+                <li><strong>Creativity:</strong> Hobbies creativity badhati hain.</li>
+                <li><strong>Productivity:</strong> Hobbies time productive banati hain.</li>
+                <li><strong>Happiness:</strong> Hobbies happiness deti hain.</li>
+                <li><strong>Self-expression:</strong> Hobbies self-expression ka tool hain.</li>
+                <li><strong>Growth:</strong> Hobbies growth deti hain.</li>
+            </ul>
+
+            <h3>Kavya Ki Hobbies</h3>
+
+            <ul>
+                <li><strong>Reading:</strong> Roz 30 minute reading. Knowledge aur entertainment.</li>
+                <li><strong>Writing:</strong> Journaling. Poetry. Stories. Self-expression.</li>
+                <li><strong>Painting:</strong> Watercolors. Relaxing aur creative.</li>
+                <li><strong>Cooking:</strong> New recipes try karna. Healthy aur fun.</li>
+                <li><strong>Music:</strong> Singing, learning instrument. Soulful.</li>
+            </ul>
+
+            <div class="box box-blue">
+                <div class="label">🎨 Hobbies = Life</div>
+                <p>Hobbies solo life ko interesting banati hain. Creativity, productivity, happiness, self-expression, growth. Hobbies explore karo. Life enjoy karo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Hobbies solo life ko interesting banati hain. Explore karo. Enjoy karo."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">135</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 17 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 17</span><span>Solo Hobbies — Creativity</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Hobbies Explore</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Mujhe kya pasand hai?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Main kaunsi nayi hobby try kar sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Ek hobby choose karo. Week me try karo.<br />
+                <strong>Step 5:</strong> Observe&mdash;hobby tumhe kaise feel karwati hai?</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhe kya pasand hai?</li>
+                <li>Kaunsi nayi hobby try kar sakte ho?</li>
+                <li>Hobbies tumhe kaise feel karwati hain?</li>
+                <li>Hobbies solo life ko kaise improve kar sakti hain?</li>
+                <li>Kya tum nayi hobby try karoge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Rahul</strong>&mdash;27 saal. Solo life boring thi. Usne hobbies explore ki. Photography, cooking, guitar. Hobbies ne uski life interesting bana di. Wo happy ho gaya.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Hobbies solo life ko interesting banati hain. Creativity, productivity, happiness, self-expression, growth. Explore karo. Enjoy karo.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne hobbies explore kar li. Ab wo physical health ka khayal rakh rahi hai. Agle chapter me&mdash;<strong>Physical Health Alone.</strong></p>
+
+            <div class="page-foot"><span class="page-num">136</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 18                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 18</span><span>Physical Health Alone</span></div>
+            <div class="ch-number">Chapter Eighteen</div>
+            <div class="ch-title">Physical Health Alone</div>
+            <div class="ch-sub">Akela rehna matlab physical health ignore karna nahi. Apna khayal rakho.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main akeli hoon, par physical health ignore nahi kar sakti." Usne physical health ka khayal rakhna shuru kiya. Exercise, healthy food, sleep&mdash;sab important hai.</p>
+
+            <h3>Physical Health Solo Life Me</h3>
+
+            <ul>
+                <li><strong>Exercise:</strong> Roz exercise karo. Walk, gym, yoga, running. Physical activity mood improve karti hai.</li>
+                <li><strong>Healthy Food:</strong> Healthy khao. Junk food avoid karo. Nutrition important hai.</li>
+                <li><strong>Sleep:</strong> 7-8 hour sleep lo. Neend mental health ke liye important hai.</li>
+                <li><strong>Hydration:</strong> Pani piyo. Hydrated raho. Energy badhti hai.</li>
+                <li><strong>Routine:</strong> Physical health ke liye routine zaroori hai.</li>
+            </ul>
+
+            <h3>Kavya Ka Physical Health Routine</h3>
+            <p>Kavya ne exercise shuru ki. Roz 30 minute walk. Healthy khaana. Sleep schedule. Hydration. Routine. Physical health improve hui. Energy badhi. Mood better hua.</p>
+
+            <div class="box box-blue">
+                <div class="label">💪 Health = Wealth</div>
+                <p>Physical health important hai. Exercise, healthy food, sleep, hydration, routine. Akela rehna matlab health ignore karna nahi. Apna khayal rakho.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Physical health ka khayal rakho. Exercise, healthy food, sleep. Apna khayal rakho."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">143</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 18 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 18</span><span>Physical Health Alone</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;Health Plan</div>
+                <p><strong>Step 1:</strong> Notebook lo.<br />
+                <strong>Step 2:</strong> Likho&mdash;"Meri physical health abhi kaisi hai?"<br />
+                <strong>Step 3:</strong> Likho&mdash;"Main kya improve kar sakta/ sakti hoon?"<br />
+                <strong>Step 4:</strong> Health plan banao. Exercise, food, sleep.<br />
+                <strong>Step 5:</strong> Action lo. Consistent raho.</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Tumhari physical health kaisi hai?</li>
+                <li>Exercise karte ho?</li>
+                <li>Healthy khaana khaate ho?</li>
+                <li>Sleep schedule follow karte ho?</li>
+                <li>Physical health improve karne ke liye kya action le sakte ho?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Aisha</strong>&mdash;25 saal. Akela rehti thi. Physical health ignore karti thi. Junk food, no exercise, less sleep. Usne health plan banaya. Exercise, healthy food, sleep. 3 months me uski physical health improve hui. Energy badhi. Mood better hua.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> Physical health important hai. Exercise, healthy food, sleep, hydration, routine. Akela rehna matlab health ignore karna nahi. Apna khayal rakho.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne physical health ka khayal rakhna seekh liya. Ab wo 30-day solo challenge kar rahi hai. Agle chapter me&mdash;<strong>30-Day Solo Challenge.</strong></p>
+
+            <div class="page-foot"><span class="page-num">144</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 19                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 19</span><span>30-Day Solo Challenge</span></div>
+            <div class="ch-number">Chapter Nineteen</div>
+            <div class="ch-title">30-Day Solo Challenge</div>
+            <div class="ch-sub">30 days solo life challenge. Apne saath rehna seekho.</div>
+
+            <p class="first-para">Kavya ne socha&mdash;"Main 30-day solo challenge karungi." 30 days me wo solo life ke sabhi aspects practice karegi. Apne saath rehna seekhegi.</p>
+
+            <h3>30-Day Solo Challenge Plan</h3>
+
+            <h4>Week 1: Start</h4>
+            <p>Day 1-7: Alone time practice. Roz 15 minute alone. Phone band. Journaling.</p>
+
+            <h4>Week 2: Build</h4>
+            <p>Day 8-14: Hobbies explore. Naya hobby try karo. Roz kuch creative karo.</p>
+
+            <h4>Week 3: Grow</h4>
+            <p>Day 15-21: Physical health. Exercise, healthy food, sleep routine.</p>
+
+            <h4>Week 4: Transform</h4>
+            <p>Day 22-28: Solo travel or new experience. Apni company enjoy karo.</p>
+
+            <p><strong>Day 29-30:</strong> Reflect. Kya change aaya? Akelapan kaise feel ho raha hai?</p>
+
+            <h3>Kavya Ka 30-Day Challenge</h3>
+            <p>Kavya ne 30-day challenge complete kiya. Week 1: Alone time. Week 2: Hobbies. Week 3: Physical health. Week 4: Solo travel. 30 days baad wo alag insaan thi. Wo apni company enjoy karti thi. Akelapan ab dard nahi tha.</p>
+
+            <div class="box box-blue">
+                <div class="label">🌟 30 Days = Transformation</div>
+                <p>30-day challenge solo life transform kar sakta hai. Consistent practice, effort, growth. 30 days baad tum alag hoge.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"30-day solo challenge karo. Apne saath rehna seekho."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">151</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 19 continued                                       -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 19</span><span>30-Day Solo Challenge</span></div>
+
+            <div class="box box-green">
+                <div class="label">✍️ Exercise&mdash;30-Day Challenge</div>
+                <p><strong>Week 1:</strong> Alone time practice.<br />
+                <strong>Week 2:</strong> Hobbies explore.<br />
+                <strong>Week 3:</strong> Physical health routine.<br />
+                <strong>Week 4:</strong> Solo experience.<br />
+                <strong>Day 29-30:</strong> Reflect. Kya change aaya?</p>
+            </div>
+
+            <h3>Reflection Questions</h3>
+            <ol>
+                <li>Kya tum 30-day challenge try karoge?</li>
+                <li>Week 1 me kya action loge?</li>
+                <li>Week 2 me kya action loge?</li>
+                <li>Week 3 me kya action loge?</li>
+                <li>Week 4 me kya action loge?</li>
+            </ol>
+
+            <div class="story-block">
+                <h4>Real Life Example</h4>
+                <p><strong>Vikram</strong>&mdash;28 saal. 30-day solo challenge kiya. Week 1: Alone time. Week 2: Guitar seekhna. Week 3: Fitness routine. Week 4: Solo trip. 30 days baad wo alag insaan tha. Happy, confident, independent.</p>
+            </div>
+
+            <p><strong>Chapter Summary:</strong> 30-day solo challenge. Week 1: Alone time. Week 2: Hobbies. Week 3: Physical health. Week 4: Solo experience. 30 days baad transformation.</p>
+            <p><strong>Next Chapter Preview:</strong> Kavya ne 30-day challenge complete kar liya. Ab wo solo life manifesto likh rahi hai. Agle chapter me&mdash;<strong>Solo Life Manifesto.</strong></p>
+
+            <div class="page-foot"><span class="page-num">152</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CHAPTER 20                                                  -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CHAPTER 20</span><span>Solo Life Manifesto</span></div>
+            <div class="ch-number">Chapter Twenty</div>
+            <div class="ch-title">Solo Life Manifesto</div>
+            <div class="ch-sub">Solo life jeene ke liye manifesto. Apne saath rehna seekho.</div>
+
+            <p class="first-para">Kavya ne solo life seekh li. Ab wo solo life manifesto likh rahi hai. Apne liye. Sabhi ke liye jo akela feel karte hain.</p>
+
+            <h3>Solo Life Manifesto</h3>
+
+            <p><strong>1. Akelapan dard nahi hai.</strong> Akelapan ek mauka hai. Apne saath rehna seekhne ka mauka.</p>
+
+            <p><strong>2. Apni company enjoy karo.</strong> Tum apni best company ho. Apne saath time spend karo. Enjoy karo.</p>
+
+            <p><strong>3. Solo life weak nahi hai.</strong> Solo life strong life hai. Independent bano. Strong bano.</p>
+
+            <p><strong>4. Social media sach nahi hai.</strong> Log apni best moments dikhate hain. Apni life ko unse compare mat karo.</p>
+
+            <p><strong>5. Apne saath rehna seekho.</strong> Self-compassion, self-care, self-reflection, gratitude. Tools hain.</p>
+
+            <p><strong>6. Routine banao.</strong> Schedule stability deta hai. Productive bano. Solo life enjoy karo.</p>
+
+            <p><strong>7. Mental health ka khayal rakho.</strong> Social connection, exercise, healthy lifestyle, professional help. Zaroori hai.</p>
+
+            <p><strong>8. Khud se dosti karo.</strong> Khud ke best friend bano. Kabhi akela nahi rahoge.</p>
+
+            <p><strong>9. Ghar comfortable banao.</strong> Ghar tumhara safe space hai. Isko comfortable banao.</p>
+
+            <p><strong>10. Solo travel karo.</strong> Apni duniya explore karo. Khud ko jaano.</p>
+
+            <p><strong>11. Relationships aur solitude balance karo.</strong> Dono important hain. Balance karo.</p>
+
+            <p><strong>12. Naye dost banao.</strong> Social circle expand karo. Connect karo.</p>
+
+            <p><strong>13. Solo life career boost karti hai.</strong> Focus, productivity, creativity, flexibility. Career grow karo.</p>
+
+            <p><strong>14. Andar ka sukoon dhundho.</strong> Spirituality tools use karo. Meditation, journaling, nature, gratitude.</p>
+
+            <p><strong>15. Overthinking ko roko.</strong> Recognize, distract, write, action, mindfulness.</p>
+
+            <p><strong>16. Emotional detachment seekho.</strong> Emotional peace aayega. Self-awareness, boundaries, response, let go, self-care.</p>
+
+            <p><strong>17. Hobbies explore karo.</strong> Creativity, productivity, happiness. Solo life interesting banao.</p>
+
+            <p><strong>18. Physical health ka khayal rakho.</strong> Exercise, healthy food, sleep, hydration, routine.</p>
+
+            <p><strong>19. 30-day challenge karo.</strong> Transformation aayega. Apne saath rehna seekho.</p>
+
+            <p><strong>20. Tum akela nahi ho.</strong> Tum apne saath ho. Tum strong ho. Tum capable ho.</p>
+
+            <div class="box box-blue">
+                <div class="label">📜 Solo Life Manifesto</div>
+                <p>Ye manifesto hai. Yaad rakho. Follow karo. Solo life enjoy karo. Apne saath rehna seekho.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Tum akela nahi ho. Tum apne saath ho. Tum strong ho."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">159</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- CONCLUSION                                                 -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>CONCLUSION</span><span>Tum Akela Nahin Ho</span></div>
+            <div class="ch-number">Conclusion</div>
+            <div class="ch-title">Tum Akela Nahin Ho</div>
+            <div class="ch-sub">Ye book yahan khatam hoti hai. Par tumhari journey abhi shuru hoti hai.</div>
+
+            <p class="first-para">Kavya ne solo life seekh li. Wo apni company enjoy karti thi. Uski life better ho gayi. Wo happy thi.</p>
+            <p>Aur tum bhi ho sakte ho. Akelapan dard nahi hai. Akelapan ek mauka hai. Apne saath rehna seekhne ka mauka.</p>
+            <p>Ye book yahan khatam hoti hai. Par tumhari journey abhi shuru hoti hai.</p>
+
+            <h3>Yaad Rakho</h3>
+
+            <ul>
+                <li>Akela hona dard nahi hai. Akela hona ek mauka hai.</li>
+                <li>Apni company enjoy karo. Khud se dosti karo.</li>
+                <li>Routine banao. Productive bano.</li>
+                <li>Mental aur physical health ka khayal rakho.</li>
+                <li>Relationships aur solitude balance karo.</li>
+                <li>Hobbies explore karo. Travel karo. Grow karo.</li>
+                <li>30-day challenge karo. Transformation aayega.</li>
+            </ul>
+
+            <div class="box box-blue">
+                <div class="label">🌟 Final Message</div>
+                <p>Tum akela nahi ho. Tum apne saath ho. Tum strong ho. Tum capable ho. Apni solo life enjoy karo. Apne saath rehna seekho. Life badlo.</p>
+            </div>
+
+            <div class="pullquote">
+                <p>"Tum akela nahi ho. Tum apne saath ho. Tum strong ho."</p>
+            </div>
+
+            <div class="page-foot"><span class="page-num">167</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- FINAL LETTER                                               -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>FINAL LETTER</span><span>Final Letter</span></div>
+
+            <p class="first-para">Dear Reader,</p>
+            <p>Tumne ye book padhi. Tumne solo life ke baare me seekha. Akelapan ko samjha. Apni company enjoy karna seekha. Ab kya?</p>
+            <p>Sirf padhna kaafi nahi. Action lena hai. Apne saath rehna seekhna hai. Solo life ko embrace karna hai.</p>
+            <p>Main jaanta hoon&mdash;akelapan dard de sakta hai. Bohot dard. Par main ye bhi jaanta hoon ki akelapan ek mauka hai. Apne saath rehna seekhne ka mauka. Apne aap ko jaanne ka mauka. Apni life ko better banane ka mauka.</p>
+            <p>Tum akela nahi ho. Tum apne saath ho. Tum strong ho. Tum capable ho.</p>
+            <p>Ab shuru karo. Chhota action. Alone time. Hobbies. Routine. Health. Relationships. Balance. 30-day challenge.</p>
+            <p>Main tum par bharosa karta hoon.</p>
+            <p style="margin-top:1.8rem; text-align:right;">— <strong>Bibek Patra</strong></p>
+
+            <div class="page-foot"><span class="page-num">173</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 30 DAYS SOLO CHALLENGE                                     -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>30 DAYS SOLO CHALLENGE</span><span>30 Days Solo Challenge</span></div>
+            <div class="ch-title" style="font-size:1.6rem;">30 Days Solo Challenge</div>
+            <div class="ch-sub">30 days&mdash;apne saath rehna seekho. Transformation aayega.</div>
+
+            <h3>Week 1: Start</h3>
+            <div class="day-card"><div class="day-head">Day 1-2</div><div class="day-body"><p>Alone time practice. Roz 15 minute alone. Phone band. Journaling.</p></div></div>
+            <div class="day-card"><div class="day-head">Day 3-4</div><div class="day-body"><p>Self-reflection. Apni life analyze karo. Kya achha hai? Kya improve kar sakte ho?</p></div></div>
+            <div class="day-card"><div class="day-head">Day 5-7</div><div class="day-body"><p>Gratitude practice. 3 cheezein likho jin ke liye grateful ho.</p></div></div>
+
+            <h3>Week 2: Build</h3>
+            <div class="day-card"><div class="day-head">Day 8-10</div><div class="day-body"><p>Hobbies explore. Naya hobby try karo. Kuch creative karo.</p></div></div>
+            <div class="day-card"><div class="day-head">Day 11-14</div><div class="day-body"><p>Physical health. Exercise, healthy food, sleep routine.</p></div></div>
+
+            <h3>Week 3: Grow</h3>
+            <div class="day-card"><div class="day-head">Day 15-17</div><div class="day-body"><p>Ghar setup improve karo. Declutter. Personal touch. Plants.</p></div></div>
+            <div class="day-card"><div class="day-head">Day 18-21</div><div class="day-body"><p>Social connection. Dost se connect karo. Naye log se baat karo.</p></div></div>
+
+            <h3>Week 4: Transform</h3>
+            <div class="day-card"><div class="day-head">Day 22-24</div><div class="day-body"><p>Solo travel or new experience. Apni company enjoy karo.</p></div></div>
+            <div class="day-card"><div class="day-head">Day 25-28</div><div class="day-body"><p>Career focus. Skill development. Networking. Freelancing.</p></div></div>
+            <div class="day-card"><div class="day-head">Day 29-30</div><div class="day-body"><p>Reflect. Kya change aaya? Akelapan kaise feel ho raha hai? Solo life manifesto likho.</p></div></div>
+
+            <div class="page-foot"><span class="page-num">177</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- NOTES PAGES                                                -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>NOTES</span><span>Notes</span></div>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:#7a5d3a; margin-bottom:1.5rem;">Apne thoughts, feelings, aur experiences yahan likho.</p>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 1: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 2: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 3: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 4: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 5: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 6: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 7: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 8: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 9: _________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 10: ________________________________________________</p></div>
+
+            <div class="page-foot"><span class="page-num">183</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- NOTES PAGES (CONTINUED)                                    -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>NOTES</span><span>Notes</span></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 11: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 12: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 13: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 14: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 15: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 16: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 17: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 18: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 19: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 20: ________________________________________________</p></div>
+
+            <div class="page-foot"><span class="page-num">184</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- NOTES PAGES (CONTINUED)                                    -->
+        <!-- ========================================================= -->
+        <div class="page">
+            <div class="running"><span>NOTES</span><span>Notes</span></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 21: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 22: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 23: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 24: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 25: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 26: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 27: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 28: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 29: ________________________________________________</p></div>
+            <div style="border-bottom:1px solid #e2d5c0; padding:1rem 0;"><p style="font-size:0.9rem; color:#5a3f24;">Day 30: ________________________________________________</p></div>
+
+            <div class="page-foot"><span class="page-num">185</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- THANK YOU                                                   -->
+        <!-- ========================================================= -->
+        <div class="page" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:350px;">
+            <p style="font-family:'Playfair Display',serif; font-size:2.2rem; color:#2d1f12; margin-bottom:0.5rem;">Thank You</p>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:#7a5d3a; max-width:400px; line-height:1.8;">Is book ko padhne ke liye dhanyavaad.<br />Apne saath rehna seekhne ke liye.<br />Apni solo life ko embrace karne ke liye.</p>
+            <div style="width:60px; height:1px; background:#7a5d3a; margin:1.2rem auto;"></div>
+            <p style="font-family:'Playfair Display',serif; font-size:1.1rem; color:#3d2b18;">Tum akela nahi ho.<br />Tum apne saath ho.</p>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:#7a5d3a; margin-top:1rem;">— Bibek Patra</p>
+            <div class="page-foot"><span class="page-num">187</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- ABOUT THE AUTHOR                                            -->
+        <!-- ========================================================= -->
+        <div class="page" style="display:flex; flex-direction:column; justify-content:center; min-height:300px;">
+            <div style="text-align:center; margin-bottom:1.5rem;">
+                <p style="font-family:'Playfair Display',serif; font-size:1.8rem; color:#2d1f12;">About The Author</p>
+                <div style="width:60px; height:1px; background:#7a5d3a; margin:0.6rem auto;"></div>
+            </div>
+            <p><strong>Bibek Patra</strong> ek writer aur life coach hain. Unka mission&mdash;logon ko apni life me action lene ke liye inspire karna. Unka maanna hai ki akelapan dard nahi hai, ek mauka hai. Apne saath rehna seekhna sabse badi skill hai.</p>
+            <p>Bibek ne khud solo life experience ki hai. Unhone akelapan ko opportunity ki tarah use kiya. Apni company enjoy karna seekha. Aur doosron ko bhi yahi sikhate hain.</p>
+            <p style="margin-top:0.8rem;"><strong>Books:</strong> Take Action, Akele Nahi Ho</p>
+            <p><strong>Mission:</strong> Har insaan ko apne saath rehna sikhana. Akelapan ko embrace karna. Strong banna.</p>
+            <div style="text-align:center; margin-top:1.5rem;">
+                <p style="font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:#7a5d3a;">Instagram: @bibekpatra | Twitter: @bibekpatra</p>
+            </div>
+            <div class="page-foot"><span class="page-num">189</span></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- END PAGE                                                    -->
+        <!-- ========================================================= -->
+        <div class="page" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:300px;">
+            <p style="font-family:'Playfair Display',serif; font-size:2.4rem; color:#2d1f12; font-weight:700;">Akele Nahi Ho</p>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:#7a5d3a; letter-spacing:0.04em;">Solo Life Jeena, Apne Saath Rehna Seekho</p>
+            <div style="width:60px; height:1px; background:#7a5d3a; margin:1.2rem auto;"></div>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:1rem; color:#3d2b18;">Bibek Patra</p>
+            <p style="font-family:'Cormorant Garamond',serif; font-size:0.85rem; color:#7a5d3a; margin-top:0.8rem; font-style:italic;">"Tum akela nahi ho. Tum apne saath ho."</p>
+            <div style="margin-top:2rem; font-family:'Cormorant Garamond',serif; font-size:0.7rem; color:#b8946a; letter-spacing:0.15em;">✦ ✦ ✦</div>
+            <div class="page-foot"><span class="page-num">191</span></div>
+        </div>
+
+    </div>
+    <!-- end book-wrapper -->
+
+</body>
+</html>
